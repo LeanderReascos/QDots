@@ -82,13 +82,26 @@ epsilon_r = 11.7  # Relative permittivity for Si
 l0 = 50e-9  # 50 nm in meters
 E0 = hbar**2 / (m_si * l0**2) 
 
-econv = 1e-2
-
 eVtoE0 = e * 1 / epsilon_r / E0  # 1 eV in effective units
 C_E0 = e**2 / (4 * np.pi * epsilon_0 * epsilon_r * l0) * 1 / E0  # Coulomb energy in effective units
 
 logger.info("1 eV in effective units: %.6f", eVtoE0)
 logger.info("Coulomb energy in effective units: %.6f", C_E0)
+
+# -----------------------------------------------------------------------------
+# Optimization parameters
+# -----------------------------------------------------------------------------
+
+JtoeV = e # 1 J in eV
+eV_error = 1e-7
+
+thresh = min(eV_error * JtoeV / E0 / 10, 1e-5)  # Set MADNESS threshold to be an order of magnitude smaller than the desired energy error
+e_conv = eV_error * JtoeV / E0  # Convert eV error to effective units
+
+opt_thresh = e_conv / 10  # Set orbital optimization threshold to be an order of magnitude smaller than the desired energy error
+
+max_iter_orbital_optimization = 5
+max_iter = 100
 
 # -----------------------------------------------------------------------------
 # Device geometry and sweep configuration
