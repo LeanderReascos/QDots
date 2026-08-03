@@ -1,0 +1,93 @@
+Potential loaded
+Order of the first monomial: 0
+Counter: 1 and current num: 4
+First non-zero: 0
+order with first non-zero: 0
+All zero
+0 0 
+Order of the first monomial: 1
+Counter: 2 and current num: 4
+First non-zero: 0
+order with first non-zero: 1
+First non-zero: 0
+0 1 
+Counter: 3 and current num: 4
+First non-zero: 0
+order with first non-zero: 0
+First non-zero: 1
+Break
+Order of the first monomial: 2
+Counter: 4 and current num: 4
+Return guesses
+-1.257959e+07
+-1.044632e+14
+-1.042833e+14
+-1.565103e+21
+H: 
+[0,*] -12579591.04127616  -0.00000611  -0.00000093 -104463175289642.50000000
+[1,*]   0.00001095 -104463162736838.70312500  -0.02107394  -3.80028668
+[2,*]  -0.00001135  -0.00480629 -104283293963888.12500000  -7.60339134
+[3,*] -104463175289642.25000000 -50.47386965 -51.69793606 -1565103376185170329600.00000000
+
+dia_matrix: 
+[0,*]  -0.50159291   0.00000000   0.00000000   0.00000000
+[1,*]   0.00000000  -0.50047641   0.00000000   0.00000000
+[2,*]   0.00000000   0.00000000  -0.50024107   0.00000000
+[3,*]   0.00000000   0.00000000   0.00000000  -0.50018678
+
+iteration 0 energy -5.016182e-01 norm 9.998778e-01 error 5.404069e-03
+iteration 1 energy -5.019776e-01 norm 1.002314e+00 error 5.404841e-03
+iteration 2 energy -5.019023e-01 norm 1.749967e+00 error 5.785337e-03
+iteration 3 energy -5.015395e-01 norm 1.261036e+00 error 1.027074e-02
+iteration 4 energy -5.009683e-01 norm 1.079249e+00 error 9.414218e-03
+iteration 5 energy -5.020359e-01 norm 1.266302e+00 error 4.080668e-03
+Final energy without shift:  -5.020359e-01
+iteration 0 energy -5.004818e-01 norm 9.996056e-01 error 3.098475e-03
+iteration 1 energy -5.023107e-01 norm 2.362025e+00 error 3.103271e-03
+iteration 2 energy -5.023290e-01 norm 2.370210e+00 error 1.229953e-02
+iteration 3 energy -5.008791e-01 norm 1.680192e+00 error 1.232636e-02
+iteration 4 energy -5.004446e-01 norm 1.599880e+00 error 3.941553e-03
+iteration 5 energy -5.004841e-01 norm 1.586601e+00 error 3.593346e-03
+Final energy without shift:  -5.004841e-01
+iteration 0 energy -5.002425e-01 norm 9.993429e-01 error 2.843409e-03
+iteration 1 energy -5.005249e-01 norm 1.072596e+00 error 2.823359e-03
+iteration 2 energy -5.005131e-01 norm 1.120830e+00 error 3.172793e-03
+Increasing subspace singular value threshold  -2.059954e+02 1.000000e-12
+Increasing subspace singular value threshold  -2.059954e+02 1.000000e-10
+Forcing full step due to subspace malfunction
+iteration 3 energy -5.005206e-01 norm 9.999182e-01 error 3.099010e-03
+Increasing subspace singular value threshold  -2.431750e+02 1.000000e-12
+Increasing subspace singular value threshold  -2.431750e+02 1.000000e-10
+Forcing full step due to subspace malfunction
+iteration 4 energy -5.005280e-01 norm 9.999226e-01 error 3.105570e-03
+Increasing subspace singular value threshold  -8.847292e+02 1.000000e-12
+Increasing subspace singular value threshold  -8.847292e+02 1.000000e-10
+Forcing full step due to subspace malfunction
+iteration 5 energy -5.005355e-01 norm 9.999270e-01 error 3.112616e-03
+Final energy without shift:  -5.005355e-01
+iteration 0 energy -5.001875e-01 norm 9.996024e-01 error 2.162407e-03
+iteration 1 energy -5.002938e-01 norm 1.035903e+00 error 2.145539e-03
+iteration 2 energy -5.003015e-01 norm 7.719367e-01 error 1.733010e-03
+Increasing subspace singular value threshold  -1.451730e+02 1.000000e-12
+Increasing subspace singular value threshold  -1.451730e+02 1.000000e-10
+iteration 3 energy -5.001974e-01 norm 9.707261e-01 error 1.645823e-03
+iteration 4 energy -5.001854e-01 norm 9.125599e-01 error 2.412535e-03
+iteration 5 energy -5.001837e-01 norm 9.659179e-01 error 2.710107e-03
+Final energy without shift:  -5.001837e-01
+-5.020359e-01
+-5.004841e-01
+-5.005355e-01
+-5.001837e-01
+H: 
+[0,*]  -0.50203588  -0.00000000   0.00029980   0.00000000
+[1,*]  -0.00000000  -0.50048414   0.00000000  -0.00000000
+[2,*]   0.00029980   0.00000000  -0.50053553  -0.00000000
+[3,*]   0.00000000  -0.00000000  -0.00000000  -0.50018371
+
+dia_matrix: 
+[0,*]  -0.50204886   0.00000000   0.00000000   0.00000000
+[1,*]   0.00000000  -0.50052246   0.00000000   0.00000000
+[2,*]   0.00000000   0.00000000  -0.50048414   0.00000000
+[3,*]   0.00000000   0.00000000   0.00000000  -0.50018371
+
+Diagonalize
