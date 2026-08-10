@@ -2,17 +2,16 @@ GiveInitialOrbitals took 0 seconds
 GiveRDMs took 0 seconds
 Calculate all integrals: 0 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -1.190165e+01
-      Active Space - Two-electron energy  1.731493e-01
+      Active Space - One electron energy  -1.454817e+01
+      Active Space - Two-electron energy  5.153486e-01
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -1.172850e+01
+                            Total energy  -1.403283e+01
 CalculateEnergies took 0 seconds
 ---------------------------------------------------
 Start iteration step: 1
 CalculateLagrangeMultiplier took 0 seconds
-Skip refinement of active space orbital 4, since the occupation is less than NO_occupation_thresh (1.000000e-05)
 Skip refinement of active space orbital 5, since the occupation is less than NO_occupation_thresh (1.000000e-05)
 Refinement timings:
 rdm_ii_inv calculation: 0 seconds
@@ -25,21 +24,20 @@ Get as orbital updates took 0 seconds
 
 === Symmetric Orthonormalization ===
 === Symmetric Orthonormalization Complete ===
-Highest as orbital error: 8.967217e-02
+Highest as orbital error: 2.134572e-01
 Update Integrals
 Calculate all integrals: 0 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -1.189905e+01
-      Active Space - Two-electron energy  1.738149e-01
+      Active Space - One electron energy  -1.454652e+01
+      Active Space - Two-electron energy  5.133009e-01
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -1.172523e+01
+                            Total energy  -1.403322e+01
 CalculateEnergies took 0 seconds
 ---------------------------------------------------
 Start iteration step: 2
 CalculateLagrangeMultiplier took 0 seconds
-Skip refinement of active space orbital 4, since the occupation is less than NO_occupation_thresh (1.000000e-05)
 Skip refinement of active space orbital 5, since the occupation is less than NO_occupation_thresh (1.000000e-05)
 Refinement timings:
 rdm_ii_inv calculation: 0 seconds
@@ -52,19 +50,5 @@ Get as orbital updates took 0 seconds
 
 === Symmetric Orthonormalization ===
 === Symmetric Orthonormalization Complete ===
-Highest as orbital error: 9.234017e-02
+Highest as orbital error: 3.972403e-02
 Update Integrals
-Calculate all integrals: 0 seconds
-Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -1.189617e+01
-      Active Space - Two-electron energy  1.743596e-01
-              AS-Core correlation energy  0.000000e+00
-                       Total core energy  0.000000e+00
-                Nuclear repulsion energy  0.000000e+00
-                            Total energy  -1.172181e+01
-CalculateEnergies took 0 seconds
----------------------------------------------------
-Start iteration step: 3
-CalculateLagrangeMultiplier took 0 seconds
-Skip refinement of active space orbital 4, since the occupation is less than NO_occupation_thresh (1.000000e-05)
-Skip refinement of active space orbital 5, since the occupation is less than NO_occupation_thresh (1.000000e-05)
