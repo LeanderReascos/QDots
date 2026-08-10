@@ -934,3 +934,45 @@
 15:05:13 | INFO     |   > Building MRA potential
 15:05:13 | INFO     |   > Solving single-particle orbitals
 15:05:17 | INFO     |   > Starting SCF loop (max_iter=100, econv=0.00623362)
+15:13:45 | INFO     |     converged after 69 iterations | energy=-3.3104857605
+15:13:45 | INFO     |   result | energy=-3.3104857605 | iterations=69 | converged=True
+15:13:45 | INFO     |   stable configuration | electrons=1 | energy=-5.3282605444
+15:13:45 | INFO     |   elapsed | 0h 8m 37.16s
+15:13:45 | INFO     |   total elapsed | 2h 57m 5.15s
+15:13:45 | INFO     | 
+15:13:45 | INFO     | Voltage sweep
+15:13:45 | INFO     | voltage=0.091 V, 0.040 V
+15:13:45 | INFO     |   electrons=0
+15:13:45 | INFO     |   electrons=1
+15:13:45 | INFO     |   > Initialising MADNESS world
+15:13:45 | INFO     |   > Building MRA potential
+15:13:45 | INFO     |   > Solving single-particle orbitals
+15:13:49 | INFO     |   > Starting SCF loop (max_iter=100, econv=0.00623362)
+15:13:50 | INFO     |     converged after 2 iterations | energy=-5.4222843569
+15:13:50 | INFO     |   result | energy=-5.4222843569 | iterations=2 | converged=True
+15:13:50 | INFO     |   electrons=2
+15:13:50 | INFO     |   > Initialising MADNESS world
+15:13:50 | INFO     |   > Building MRA potential
+15:13:51 | INFO     |   > Solving single-particle orbitals
+15:13:55 | INFO     |   > Starting SCF loop (max_iter=100, econv=0.00623362)
+15:17:36 | INFO     |     converged after 30 iterations | energy=-3.5284140996
+15:17:36 | INFO     |   result | energy=-3.5284140996 | iterations=30 | converged=True
+15:17:36 | INFO     |   stable configuration | electrons=1 | energy=-5.4222843569
+15:17:36 | INFO     |   elapsed | 0h 3m 51.26s
+15:17:36 | INFO     |   total elapsed | 3h 0m 56.41s
+15:17:36 | INFO     | 
+15:17:36 | INFO     | Voltage sweep
+15:17:36 | INFO     | voltage=0.091 V, 0.051 V
+15:17:36 | INFO     |   electrons=0
+15:17:36 | INFO     |   electrons=1
+15:17:36 | INFO     |   > Initialising MADNESS world
+15:17:36 | INFO     |   > Building MRA potential
+15:17:36 | INFO     |   > Solving single-particle orbitals
+15:17:40 | INFO     |   > Starting SCF loop (max_iter=100, econv=0.00623362)
+15:17:41 | INFO     |     converged after 2 iterations | energy=-5.5175363671
+15:17:41 | INFO     |   result | energy=-5.5175363671 | iterations=2 | converged=True
+15:17:41 | INFO     |   electrons=2
+15:17:41 | INFO     |   > Initialising MADNESS world
+15:17:41 | INFO     |   > Building MRA potential
+15:17:42 | INFO     |   > Solving single-particle orbitals
+15:17:45 | INFO     |   > Starting SCF loop (max_iter=100, econv=0.00623362)
