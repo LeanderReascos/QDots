@@ -179,7 +179,7 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
     converged = False
     n_iterations = 0
     story = []
-    converged_orbital = []
+    converged_orbitals = []
     if kwargs["logger"]:
         kwargs["logger"].info("  > Starting SCF loop (max_iter=%s, econv=%g)", kwargs["max_iter"], kwargs["econv"])
 
@@ -218,7 +218,7 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
                 maxiter=kwargs["max_iter_orbital_optimization"],
                 redirect_filename=f"madopt{iteration}.log",
             )
-            converged_orbital.append(converged_orbital)
+            converged_orbitals.append(converged_orbital)
         n_iterations = iteration + 1
 
         energy = e + c
