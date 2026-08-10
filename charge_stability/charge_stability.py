@@ -106,14 +106,13 @@ opt_thresh = e_conv / 10  # Set orbital optimization threshold to be an order of
 
 max_iter_orbital_optimization = 5
 max_iter = 100
-max_time_per_iteration = 10 * 60  # 10 minutes in seconds
 
 # -----------------------------------------------------------------------------
 # Result container
 # -----------------------------------------------------------------------------
 results = {
     "metadata": {
-        "description": "Closed-shell charge stability sweep for a double quantum dot.",
+        "description": "Charge stability sweep for a double quantum dot.",
         "length_scale_nm": 50.0,
         "effective_units_reference_energy": float(E0),
         "coulomb_energy_effective_units": float(C_E0),
@@ -124,4 +123,32 @@ results = {
     "runs": [],
 }
 
-logger.info("Starting charge stability sweep for a single quantum dot, error: %.2e eV or %.2e effective units", eV_error, e_conv)
+logger.info("Starting charge stability sweep for a double quantum dot, error: %.2e eV or %.2e effective units", eV_error, e_conv)
+
+# -----------------------------------------------------------------------------
+# Main sweep loop
+# -----------------------------------------------------------------------------
+
+
+for n_electrons, n_orbitals in zip(N_electrons, M_orbitals):
+    run = {
+        "n_electrons": int(n_electrons),
+        "n_orbitals": int(n_orbitals),
+        "points": [],
+    }
+    results["runs"].append(run)
+
+    start_time_per_n = time()
+
+    # -------------------------------------------------------------------------
+    # Voltage loop
+    # -------------------------------------------------------------------------
+    for v_x in Vs:
+        for v_y in Vs:
+            # Since the results will be simetrical, we can skip half of the points
+            if v_x < v_y:
+                continue
+
+            logger.info("")
+            logger.info("Voltage sweep")
+            logger.info("  electrons=%s | orbitals=%s | voltage=%.3f V, %.3f V", n_electrons, n_orbitals, v_x, v_y)
