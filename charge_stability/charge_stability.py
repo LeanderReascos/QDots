@@ -135,11 +135,10 @@ logger.info("Starting charge stability sweep for a double quantum dot, error: %.
 # Main sweep loop
 # -----------------------------------------------------------------------------
 
-n_electrons_stable = 0
-energy_stable = 0.0
+n_stable_grid = {(0, 0): (0, 0.0)}  # Dictionary to store the stable configuration for each voltage point
 
-for v_x in Vs:
-    for v_y in Vs:
+for i, v_x in enumerate(Vs):
+    for j, v_y in enumerate(Vs):
         # Since the results will be simetrical, we can skip half of the points
         if v_x < v_y:
             continue
@@ -155,7 +154,14 @@ for v_x in Vs:
         logger.info("")
         logger.info("Voltage sweep")
         logger.info("voltage=%.3f V, %.3f V", v_x, v_y)
-    
+
+        if j > 0:
+            n_electrons_stable, energy_stable = n_stable_grid[(i, j - 1)]
+        elif i > 0:
+            n_electrons_stable, energy_stable = n_stable_grid[(i - 1, j)]
+        else:
+            n_electrons_stable, energy_stable = 0, 0
+
         results["runs"].append(run)
 
         # Gate voltages
@@ -236,6 +242,9 @@ for v_x in Vs:
 
         run["energy"] = float(energy_stable)
         run["n_electrons"] = int(n_electrons_stable)
+
+        n_stable_grid[(i, j)] = (n_electrons_stable, energy_stable)
+        results["charge_stability"] = n_stable_grid
 
         logger.info("  stable configuration | electrons=%s | energy=%+.10f", n_electrons_stable, energy_stable)
 
