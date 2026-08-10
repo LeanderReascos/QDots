@@ -1,0 +1,168 @@
+8 active alpha orbitals and 8 active beta orbitals
+GiveInitialOrbitals took 0 seconds
+Calculate all integrals: 2 seconds
+Orbital Multiplication: 0 seconds
+      Active Space - One electron energy  -1.856468e+01
+      Active Space - Two-electron energy  7.803799e-01
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -1.778430e+01
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 0
+CalculateLagrangeMultiplier took 0 seconds
+Skip refinement of spin0active space orbital 6, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin0active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 3, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 4, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 5, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 6, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Error of spin 0 active space orbital 0: 5.697759e-04
+Error of spin 0 active space orbital 1: 8.864702e-03
+Error of spin 0 active space orbital 2: 1.555195e-02
+Error of spin 0 active space orbital 3: 6.626022e-02
+Error of spin 0 active space orbital 4: 1.406833e-02
+Error of spin 0 active space orbital 5: 2.072912e-02
+Warning: Positive Lagrange multiplier for spin 1 active orbital 0: 2.564767e-01
+Setting it to -1.000000e-03.
+Error of spin 1 active space orbital 0: 9.989877e+00
+Error of spin 1 active space orbital 1: 1.505747e+00
+Error of spin 1 active space orbital 2: 1.394562e-01
+Refinement timings:
+rdm_ii_inv calculation: 0 seconds
+one electron part: 0 seconds
+AS two electron part: 6 seconds
+Core-AS part: 0 seconds
+BSH part: 0 seconds
+Full function: 7 seconds
+Get as orbital updates took 7 seconds
+Highest as orbital error: 9.989877e+00
+Update Integrals
+Calculate all integrals: 1 seconds
+Orbital Multiplication: 0 seconds
+      Active Space - One electron energy  -1.855751e+01
+      Active Space - Two-electron energy  7.796651e-01
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -1.777785e+01
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 1
+CalculateLagrangeMultiplier took 0 seconds
+Skip refinement of spin0active space orbital 6, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin0active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 3, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 4, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 5, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 6, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Error of spin 0 active space orbital 0: 1.155744e-03
+Error of spin 0 active space orbital 1: 6.708279e-03
+Error of spin 0 active space orbital 2: 1.122179e-03
+Error of spin 0 active space orbital 3: 1.491242e-02
+Error of spin 0 active space orbital 4: 5.061457e-03
+Error of spin 0 active space orbital 5: 6.158454e-03
+Warning: Positive Lagrange multiplier for spin 1 active orbital 0: 2.513979e-01
+Setting it to -1.000000e-03.
+Error of spin 1 active space orbital 0: 9.819699e+00
+Warning: Positive Lagrange multiplier for spin 1 active orbital 1: 2.066916e+00
+Setting it to -1.000000e-03.
+Error of spin 1 active space orbital 1: 1.736296e+02
+Error of spin 1 active space orbital 2: 4.434069e-01
+Refinement timings:
+rdm_ii_inv calculation: 0 seconds
+one electron part: 0 seconds
+AS two electron part: 5 seconds
+Core-AS part: 0 seconds
+BSH part: 0 seconds
+Full function: 5 seconds
+Get as orbital updates took 5 seconds
+Highest as orbital error: 1.736296e+02
+Update Integrals
+Calculate all integrals: 1 seconds
+Orbital Multiplication: 0 seconds
+      Active Space - One electron energy  -1.855178e+01
+      Active Space - Two-electron energy  7.810784e-01
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -1.777070e+01
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 2
+CalculateLagrangeMultiplier took 0 seconds
+Skip refinement of spin0active space orbital 6, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin0active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 3, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 4, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 5, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 6, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Error of spin 0 active space orbital 0: 2.927527e-04
+Error of spin 0 active space orbital 1: 2.792258e-03
+Error of spin 0 active space orbital 2: 2.178609e-03
+Error of spin 0 active space orbital 3: 7.203088e-03
+Error of spin 0 active space orbital 4: 3.924347e-03
+Error of spin 0 active space orbital 5: 1.407302e-03
+Warning: Positive Lagrange multiplier for spin 1 active orbital 0: 2.532791e-01
+Setting it to -1.000000e-03.
+Error of spin 1 active space orbital 0: 9.838892e+00
+Warning: Positive Lagrange multiplier for spin 1 active orbital 1: 2.005959e+00
+Setting it to -1.000000e-03.
+Error of spin 1 active space orbital 1: 2.775801e+02
+Error of spin 1 active space orbital 2: 5.567592e-01
+Refinement timings:
+rdm_ii_inv calculation: 0 seconds
+one electron part: 0 seconds
+AS two electron part: 4 seconds
+Core-AS part: 0 seconds
+BSH part: 0 seconds
+Full function: 5 seconds
+Get as orbital updates took 5 seconds
+Highest as orbital error: 2.775801e+02
+Update Integrals
+Calculate all integrals: 1 seconds
+Orbital Multiplication: 0 seconds
+      Active Space - One electron energy  -1.854926e+01
+      Active Space - Two-electron energy  7.811669e-01
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -1.776810e+01
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 3
+CalculateLagrangeMultiplier took 0 seconds
+Skip refinement of spin0active space orbital 6, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin0active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 3, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 4, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 5, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 6, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of spin1active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Error of spin 0 active space orbital 0: 2.078203e-04
+Error of spin 0 active space orbital 1: 1.599031e-03
+Error of spin 0 active space orbital 2: 1.368054e-03
+Error of spin 0 active space orbital 3: 3.531483e-03
+Error of spin 0 active space orbital 4: 2.423710e-03
+Error of spin 0 active space orbital 5: 4.250199e-03
+Warning: Positive Lagrange multiplier for spin 1 active orbital 0: 2.533597e-01
+Setting it to -1.000000e-03.
+Error of spin 1 active space orbital 0: 9.835392e+00
+Warning: Positive Lagrange multiplier for spin 1 active orbital 1: 1.985420e+00
+Setting it to -1.000000e-03.
+Error of spin 1 active space orbital 1: 2.780000e+02
+Error of spin 1 active space orbital 2: 6.052911e-01
+Refinement timings:
+rdm_ii_inv calculation: 0 seconds
+one electron part: 0 seconds
+AS two electron part: 4 seconds
+Core-AS part: 0 seconds
+BSH part: 0 seconds
+Full function: 5 seconds
+Get as orbital updates took 5 seconds
+Highest as orbital error: 2.780000e+02
+Update Integrals
