@@ -88,8 +88,8 @@ d = 80 / (l0 * 1e9)  # Dot separation
 
 JtoeV = e * 1 # J to eV conversion factor
 
-N_electrons = [(1, 0), 2, (2, 1), 4, (3, 2), 6]
-M_orbitals = [2, 6, 8, 10, 12, 14]
+N_electrons = [0, (1, 0), 2, (2, 1), 4, (3, 2), 6]
+M_orbitals = [0, 2, 6, 8, 10, 12, 14]
 
 Vs = np.linspace(0, 1, 100) # V
 
@@ -130,25 +130,40 @@ logger.info("Starting charge stability sweep for a double quantum dot, error: %.
 # -----------------------------------------------------------------------------
 
 
-for n_electrons, n_orbitals in zip(N_electrons, M_orbitals):
-    run = {
-        "n_electrons": int(n_electrons),
-        "n_orbitals": int(n_orbitals),
-        "points": [],
-    }
-    results["runs"].append(run)
+for v_x in Vs:
+    n_electrons = 0
+    for v_y in Vs:
+        # Since the results will be simetrical, we can skip half of the points
+        if v_x < v_y:
+            continue
 
-    start_time_per_n = time()
+        run = {
+            "vL": float(v_x),
+            "vR": float(v_y),
+            "points": [],
+        }
 
-    # -------------------------------------------------------------------------
-    # Voltage loop
-    # -------------------------------------------------------------------------
-    for v_x in Vs:
-        for v_y in Vs:
-            # Since the results will be simetrical, we can skip half of the points
-            if v_x < v_y:
-                continue
+        logger.info("")
+        logger.info("Voltage sweep")
+        logger.info("voltage=%.3f V, %.3f V", v_x, v_y)
+    
+        results["runs"].append(run)
 
-            logger.info("")
-            logger.info("Voltage sweep")
-            logger.info("  electrons=%s | orbitals=%s | voltage=%.3f V, %.3f V", n_electrons, n_orbitals, v_x, v_y)
+        # Gate voltages
+        VL = SquareGate(x0=-L/2 - Lx_x/2, y0=0, z0=z_pot, Lx=L, Ly=L)
+        VR = SquareGate(x0=L/2 + Lx_x/2, y0=0, z0=z_pot, Lx=L, Ly=L)
+        VX = SquareGate(x0=0, y0=0, z0=z_pot, Lx=Lx_x, Ly=Ly_x)
+        gates = Gates([VL, VX, VR])
+        gates.add_voltages([v_x, -0.1, v_y])
+
+        def potential(x, y):
+            return gates.Vi(x, y) * eVtoE0  # in effective units
+
+        for electron_configuration, m_orbital in zip(N_electrons, M_orbitals):
+            n_electrons = electron_configuration if isinstance(electron_configuration, int) else sum(electron_configuration)
+
+            
+
+
+
+
