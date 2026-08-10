@@ -179,6 +179,7 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
     converged = False
     n_iterations = 0
     story = []
+    converged_orbital = []
     if kwargs["logger"]:
         kwargs["logger"].info("  > Starting SCF loop (max_iter=%s, econv=%g)", kwargs["max_iter"], kwargs["econv"])
 
@@ -209,7 +210,7 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
         with profiler.stage(f"Orbital Refinement {iteration}"):
             # Orbital refinement with core orbital refinement enabled
             opti = fe.OrbitalRefinement_open_shell(world, mra_pot, kwargs["nuc_repulsion"])
-            core, orbitals_ab, converged = opti.refine_orbitals(
+            core, orbitals_ab, converged_orbital = opti.refine_orbitals(
                 orbitals=[[], [], orbitals_ab[0], orbitals_ab[1]],
                 rdm1=rdm1,
                 rdm2=[rdm_2_phys_aa, rdm_2_phys_ab, rdm_2_phys_bb],
@@ -217,6 +218,7 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
                 maxiter=kwargs["max_iter_orbital_optimization"],
                 redirect_filename=f"madopt{iteration}.log",
             )
+            converged_orbital.append(converged_orbital)
         n_iterations = iteration + 1
 
         energy = e + c
@@ -243,6 +245,7 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
         "energy": float(energy),
         "n_iterations": int(n_iterations),
         "converged": converged,
+        "converged_orbital": converged_orbital,
         "story": story,
         "profiler": profiler.data,
         "log_time": end_time - start_time

@@ -156,11 +156,11 @@ for i, v_x in enumerate(Vs):
         logger.info("voltage=%.3f V, %.3f V", v_x, v_y)
 
         if j > 0:
-            n_electrons_stable, energy_stable = n_stable_grid[(i, j - 1)]
+            n_electrons_stable, _ = n_stable_grid[(i, j - 1)]
         elif i > 0:
-            n_electrons_stable, energy_stable = n_stable_grid[(i - 1, j)]
+            n_electrons_stable, _ = n_stable_grid[(i - 1, j)]
         else:
-            n_electrons_stable, energy_stable = 0, 0
+            n_electrons_stable, _ = 0, 0
 
         results["runs"].append(run)
 
@@ -234,11 +234,14 @@ for i, v_x in enumerate(Vs):
                 logger.warning("    reached max_iter without convergence | energy=%+.10f", result["energy"])
 
             logger.info("  result | energy=%+.10f | iterations=%s | converged=%s", result["energy"], result["n_iterations"], result["converged"])
-            
-        for result in run["points"].values():
-            if result["energy"] < energy_stable:
-                energy_stable = result["energy"]
-                n_electrons_stable = result["n_electrons"]
+
+        best_result = min(
+            run["points"].values(),
+            key=lambda result: result["energy"]
+        )
+
+        energy_stable = best_result["energy"]
+        n_electrons_stable = best_result["n_electrons"]
 
         run["energy"] = float(energy_stable)
         run["n_electrons"] = int(n_electrons_stable)
