@@ -144,6 +144,8 @@ for v_x in Vs:
         if v_x < v_y:
             continue
 
+        start_time_per_point = time()
+
         run = {
             "vL": float(v_x),
             "vR": float(v_y),
@@ -166,8 +168,10 @@ for v_x in Vs:
         def potential(x, y):
             return gates.Vi(x, y) * eVtoE0  # in effective units
 
-
         for n_electrons in [n_electrons_stable, n_electrons_stable + 1]:
+
+            logger.info("  electrons=%s", n_electrons)
+            
             if n_electrons == 0:
                 result = {
                     "n_electrons": 0,
@@ -206,5 +210,42 @@ for v_x in Vs:
             result.update(result_calculation)
             run["points"][n_electrons] = result
 
-        
+            # Clean temp logs files:
+            for temp_file in Path('.').glob('mad*.log'):
+                temp_file.unlink()
 
+            if not result["converged"]:
+                logger.warning("    reached max_iter without convergence | energy=%+.10f", result["energy"])
+
+            logger.info("  result | energy=%+.10f | iterations=%s | converged=%s", result["energy"], result["n_iterations"], result["converged"])
+            
+        for result in run["points"].values():
+            if result["energy"] < energy_stable:
+                energy_stable = result["energy"]
+                n_electrons_stable = result["n_electrons"]
+
+        run["energy"] = float(energy_stable)
+        run["n_electrons"] = int(n_electrons_stable)
+
+        logger.info("  stable configuration | electrons=%s | energy=%+.10f", n_electrons_stable, energy_stable)
+
+        with open(results_path, "wb") as f:
+            dump(results, f)
+
+        end_time_per_point = time()
+        elapsed_time_per_point = end_time_per_point - start_time_per_point
+        logger.info("  elapsed | %s", format_elapsed_time(elapsed_time_per_point))
+        total_elapsed_time = end_time_per_point - start_time
+        logger.info("  total elapsed | %s", format_elapsed_time(total_elapsed_time))
+
+
+# -----------------------------------------------------------------------------
+# Final summary
+# -----------------------------------------------------------------------------
+end_time = time()
+elapsed_time = end_time - start_time
+logger.info("")
+logger.info("Finished")
+logger.info("  total time | %s", format_elapsed_time(elapsed_time))
+logger.info("  data saved | %s", results_path)
+logger.info("  log file   | %s", log_path)
