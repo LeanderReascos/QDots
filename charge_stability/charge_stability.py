@@ -135,10 +135,10 @@ logger.info("Starting charge stability sweep for a double quantum dot, error: %.
 # Main sweep loop
 # -----------------------------------------------------------------------------
 
+n_electrons_stable = 0
+energy_stable = 0.0
 
 for v_x in Vs:
-    n_electrons_stable = 0
-    energy_stable = 0.0
     for v_y in Vs:
         # Since the results will be simetrical, we can skip half of the points
         if v_x < v_y:
@@ -168,7 +168,17 @@ for v_x in Vs:
         def potential(x, y):
             return gates.Vi(x, y) * eVtoE0  # in effective units
 
-        for n_electrons in [n_electrons_stable, n_electrons_stable + 1]:
+        candidate_ns = [
+            n_electrons_stable - 1,
+            n_electrons_stable,
+            n_electrons_stable + 1,
+        ]
+        candidate_ns = [
+            n for n in candidate_ns
+            if 0 <= n <= max(electrons_configurations)
+        ]
+
+        for n_electrons in candidate_ns:
 
             logger.info("  electrons=%s", n_electrons)
             
