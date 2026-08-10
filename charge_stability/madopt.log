@@ -1,14 +1,16 @@
 GiveInitialOrbitals took 0 seconds
 GiveRDMs took 0 seconds
-Calculate all integrals: 0 seconds
+Calculate all integrals: 1 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -7.134806e+00
-      Active Space - Two-electron energy  1.493534e-01
+      Active Space - One electron energy  -7.538377e+00
+      Active Space - Two-electron energy  1.630979e-01
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -6.985452e+00
+                            Total energy  -7.375279e+00
 CalculateEnergies took 0 seconds
 ---------------------------------------------------
 Start iteration step: 1
 CalculateLagrangeMultiplier took 0 seconds
+Skip refinement of active space orbital 4, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Skip refinement of active space orbital 5, since the occupation is less than NO_occupation_thresh (1.000000e-05)
