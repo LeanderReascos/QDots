@@ -88,8 +88,14 @@ d = 80 / (l0 * 1e9)  # Dot separation
 
 JtoeV = e * 1 # J to eV conversion factor
 
-N_electrons = [0, (1, 0), 2, (2, 1), 4, (3, 2), 6]
-M_orbitals = [0, 2, 6, 8, 10, 12, 14]
+electrons_configurations = {
+    1: [(1, 0), 2],
+    2: [2, 6],
+    3: [(2, 1), 8],
+    4: [4, 10],
+    5: [(3, 2), 12],
+    6: [6, 14],
+}
 
 Vs = np.linspace(0, 1, 100) # V
 
@@ -131,7 +137,8 @@ logger.info("Starting charge stability sweep for a double quantum dot, error: %.
 
 
 for v_x in Vs:
-    n_electrons = 0
+    n_electrons_stable = 0
+    energy_stable = 0.0
     for v_y in Vs:
         # Since the results will be simetrical, we can skip half of the points
         if v_x < v_y:
@@ -140,7 +147,7 @@ for v_x in Vs:
         run = {
             "vL": float(v_x),
             "vR": float(v_y),
-            "points": [],
+            "points" : {}
         }
 
         logger.info("")
@@ -159,11 +166,45 @@ for v_x in Vs:
         def potential(x, y):
             return gates.Vi(x, y) * eVtoE0  # in effective units
 
-        for electron_configuration, m_orbital in zip(N_electrons, M_orbitals):
-            n_electrons = electron_configuration if isinstance(electron_configuration, int) else sum(electron_configuration)
 
+        for n_electrons in [n_electrons_stable, n_electrons_stable + 1]:
+            if n_electrons == 0:
+                result = {
+                    "n_electrons": 0,
+                    "n_alpha": 0,
+                    "n_beta": 0,
+                    "n_orbitals": 0,
+                    "energy": 0.0,
+                }
+
+                run["points"][n_electrons] = result
+                continue
             
+            electrons, n_orbitals = electrons_configurations[n_electrons]
 
+            result = {
+                "n_electrons": int(n_electrons),
+                "n_orbitals": int(n_orbitals),
+            }
 
+            if n_electrons % 2 == 1:
+                n_alpha, n_beta = electrons
+                result.update({
+                    "n_alpha": int(n_alpha),
+                    "n_beta": int(n_beta),
+                })
+                result_calculation = open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, C_E0=C_E0, econv=e_conv, nuc_repulsion=0.0, max_iter=max_iter, logger=logger, get_potential=False,
+                                                    opt_thresh=opt_thresh, max_iter_orbital_optimization=max_iter_orbital_optimization, thresh=thresh)
 
+            else:
+                result.update({
+                    "n_alpha": int(n_electrons // 2),
+                    "n_beta": int(n_electrons // 2),
+                })
+                result_calculation = closed_shell_calculation(potential, L, n_electrons, n_orbitals, C_E0=C_E0, econv=e_conv, max_iter=max_iter, logger=logger, get_potential=False, opt_thresh=opt_thresh, max_iter_orbital_optimization=max_iter_orbital_optimization, thresh=thresh)
+
+            result.update(result_calculation)
+            run["points"][n_electrons] = result
+
+        
 
