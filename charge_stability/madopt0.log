@@ -2,70 +2,70 @@
 GiveInitialOrbitals took 0 seconds
 Calculate all integrals: 1 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -7.361022e+01
-      Active Space - Two-electron energy  2.591009e+00
+      Active Space - One electron energy  -7.666401e+01
+      Active Space - Two-electron energy  2.610272e+00
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -7.101922e+01
+                            Total energy  -7.405374e+01
 CalculateEnergies took 0 seconds
 ---------------------------------------------------
 Start iteration step: 0
 CalculateLagrangeMultiplier took 0 seconds
-Error of spin 0 active space orbital 0: 9.367238e-03
-Error of spin 0 active space orbital 1: 1.578166e-02
-Error of spin 0 active space orbital 2: 9.231906e-03
-Error of spin 0 active space orbital 3: 1.842214e-02
-Error of spin 0 active space orbital 4: 5.145526e-02
-Error of spin 0 active space orbital 5: 5.590114e-02
-Error of spin 0 active space orbital 6: 2.569371e-02
-Error of spin 0 active space orbital 7: 4.611269e-02
-Error of spin 1 active space orbital 0: 1.585098e-02
-Error of spin 1 active space orbital 1: 9.224802e-03
-Error of spin 1 active space orbital 2: 1.831315e-02
-Error of spin 1 active space orbital 3: 5.155438e-02
-Error of spin 1 active space orbital 4: 3.774062e-02
-Error of spin 1 active space orbital 5: 4.283629e-02
-Error of spin 1 active space orbital 6: 5.572775e-02
-Error of spin 1 active space orbital 7: 1.930660e-01
+Error of spin 0 active space orbital 0: 8.991422e-03
+Error of spin 0 active space orbital 1: 2.046664e-02
+Error of spin 0 active space orbital 2: 1.460496e-02
+Error of spin 0 active space orbital 3: 2.353001e-02
+Error of spin 0 active space orbital 4: 6.564077e-02
+Error of spin 0 active space orbital 5: 3.854498e-02
+Error of spin 0 active space orbital 6: 1.437217e-02
+Error of spin 0 active space orbital 7: 5.067680e-02
+Error of spin 1 active space orbital 0: 2.081797e-02
+Error of spin 1 active space orbital 1: 1.458720e-02
+Error of spin 1 active space orbital 2: 2.304102e-02
+Error of spin 1 active space orbital 3: 6.394904e-02
+Error of spin 1 active space orbital 4: 3.098306e-02
+Error of spin 1 active space orbital 5: 3.058673e-02
+Error of spin 1 active space orbital 6: 3.705100e-02
+Error of spin 1 active space orbital 7: 9.062457e-02
 Refinement timings:
 rdm_ii_inv calculation: 0 seconds
 one electron part: 0 seconds
-AS two electron part: 9 seconds
+AS two electron part: 7 seconds
 Core-AS part: 0 seconds
 BSH part: 0 seconds
-Full function: 9 seconds
-Get as orbital updates took 9 seconds
-Highest as orbital error: 1.930660e-01
+Full function: 7 seconds
+Get as orbital updates took 7 seconds
+Highest as orbital error: 9.062457e-02
 Update Integrals
 Calculate all integrals: 1 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -7.369563e+01
-      Active Space - Two-electron energy  2.585747e+00
+      Active Space - One electron energy  -7.678094e+01
+      Active Space - Two-electron energy  2.604543e+00
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -7.110988e+01
+                            Total energy  -7.417640e+01
 CalculateEnergies took 0 seconds
 ---------------------------------------------------
 Start iteration step: 1
 CalculateLagrangeMultiplier took 0 seconds
-Error of spin 0 active space orbital 0: 7.754312e-03
-Error of spin 0 active space orbital 1: 1.302268e-02
-Error of spin 0 active space orbital 2: 4.270714e-03
-Error of spin 0 active space orbital 3: 9.670410e-03
-Error of spin 0 active space orbital 4: 2.750700e-02
-Error of spin 0 active space orbital 5: 4.086926e-02
-Error of spin 0 active space orbital 6: 1.128393e-02
-Error of spin 0 active space orbital 7: 2.512631e-02
-Error of spin 1 active space orbital 0: 1.323509e-02
-Error of spin 1 active space orbital 1: 5.300837e-03
-Error of spin 1 active space orbital 2: 9.974200e-03
-Error of spin 1 active space orbital 3: 2.822007e-02
-Error of spin 1 active space orbital 4: 2.433250e-02
-Error of spin 1 active space orbital 5: 2.166560e-02
-Error of spin 1 active space orbital 6: 2.920228e-02
-Error of spin 1 active space orbital 7: 1.234474e-01
+Error of spin 0 active space orbital 0: 6.593485e-03
+Error of spin 0 active space orbital 1: 1.604567e-02
+Error of spin 0 active space orbital 2: 6.104280e-03
+Error of spin 0 active space orbital 3: 1.274180e-02
+Error of spin 0 active space orbital 4: 3.432247e-02
+Error of spin 0 active space orbital 5: 2.761379e-02
+Error of spin 0 active space orbital 6: 6.728777e-03
+Error of spin 0 active space orbital 7: 3.347171e-02
+Error of spin 1 active space orbital 0: 1.625947e-02
+Error of spin 1 active space orbital 1: 6.752884e-03
+Error of spin 1 active space orbital 2: 1.284131e-02
+Error of spin 1 active space orbital 3: 3.393135e-02
+Error of spin 1 active space orbital 4: 1.838454e-02
+Error of spin 1 active space orbital 5: 1.815902e-02
+Error of spin 1 active space orbital 6: 1.750571e-02
+Error of spin 1 active space orbital 7: 6.732133e-02
 Refinement timings:
 rdm_ii_inv calculation: 0 seconds
 one electron part: 0 seconds
@@ -74,139 +74,139 @@ Core-AS part: 0 seconds
 BSH part: 0 seconds
 Full function: 7 seconds
 Get as orbital updates took 7 seconds
-Highest as orbital error: 1.234474e-01
+Highest as orbital error: 6.732133e-02
 Update Integrals
 Calculate all integrals: 1 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -7.373684e+01
-      Active Space - Two-electron energy  2.581939e+00
+      Active Space - One electron energy  -7.683132e+01
+      Active Space - Two-electron energy  2.600764e+00
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -7.115491e+01
+                            Total energy  -7.423055e+01
 CalculateEnergies took 0 seconds
 ---------------------------------------------------
 Start iteration step: 2
 CalculateLagrangeMultiplier took 0 seconds
-Error of spin 0 active space orbital 0: 6.432684e-03
-Error of spin 0 active space orbital 1: 9.158090e-03
-Error of spin 0 active space orbital 2: 2.269573e-03
-Error of spin 0 active space orbital 3: 5.134622e-03
-Error of spin 0 active space orbital 4: 1.829072e-02
-Error of spin 0 active space orbital 5: 3.172767e-02
-Error of spin 0 active space orbital 6: 6.149003e-03
-Error of spin 0 active space orbital 7: 1.736707e-02
-Error of spin 1 active space orbital 0: 9.366952e-03
-Error of spin 1 active space orbital 1: 3.484315e-03
-Error of spin 1 active space orbital 2: 5.820277e-03
-Error of spin 1 active space orbital 3: 1.909405e-02
-Error of spin 1 active space orbital 4: 1.728809e-02
-Error of spin 1 active space orbital 5: 1.611307e-02
-Error of spin 1 active space orbital 6: 2.175804e-02
-Error of spin 1 active space orbital 7: 8.478260e-02
+Error of spin 0 active space orbital 0: 5.099128e-03
+Error of spin 0 active space orbital 1: 1.074534e-02
+Error of spin 0 active space orbital 2: 3.344463e-03
+Error of spin 0 active space orbital 3: 7.059538e-03
+Error of spin 0 active space orbital 4: 2.173734e-02
+Error of spin 0 active space orbital 5: 2.129574e-02
+Error of spin 0 active space orbital 6: 3.900242e-03
+Error of spin 0 active space orbital 7: 2.494189e-02
+Error of spin 1 active space orbital 0: 1.094326e-02
+Error of spin 1 active space orbital 1: 4.444286e-03
+Error of spin 1 active space orbital 2: 7.704672e-03
+Error of spin 1 active space orbital 3: 2.148030e-02
+Error of spin 1 active space orbital 4: 1.246428e-02
+Error of spin 1 active space orbital 5: 1.305918e-02
+Error of spin 1 active space orbital 6: 1.010662e-02
+Error of spin 1 active space orbital 7: 5.305716e-02
 Refinement timings:
 rdm_ii_inv calculation: 0 seconds
 one electron part: 0 seconds
 AS two electron part: 6 seconds
 Core-AS part: 0 seconds
 BSH part: 0 seconds
-Full function: 6 seconds
-Get as orbital updates took 6 seconds
-Highest as orbital error: 8.478260e-02
+Full function: 7 seconds
+Get as orbital updates took 7 seconds
+Highest as orbital error: 5.305716e-02
 Update Integrals
 Calculate all integrals: 1 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -7.376063e+01
-      Active Space - Two-electron energy  2.579584e+00
+      Active Space - One electron energy  -7.685572e+01
+      Active Space - Two-electron energy  2.598549e+00
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -7.118104e+01
+                            Total energy  -7.425717e+01
 CalculateEnergies took 0 seconds
 ---------------------------------------------------
 Start iteration step: 3
 CalculateLagrangeMultiplier took 0 seconds
-Error of spin 0 active space orbital 0: 5.234749e-03
-Error of spin 0 active space orbital 1: 7.039113e-03
-Error of spin 0 active space orbital 2: 1.383476e-03
-Error of spin 0 active space orbital 3: 2.884448e-03
-Error of spin 0 active space orbital 4: 1.384344e-02
-Error of spin 0 active space orbital 5: 2.550032e-02
-Error of spin 0 active space orbital 6: 5.158630e-03
-Error of spin 0 active space orbital 7: 1.271868e-02
-Error of spin 1 active space orbital 0: 7.062795e-03
-Error of spin 1 active space orbital 1: 2.354250e-03
-Error of spin 1 active space orbital 2: 3.585727e-03
-Error of spin 1 active space orbital 3: 1.435158e-02
-Error of spin 1 active space orbital 4: 1.252146e-02
-Error of spin 1 active space orbital 5: 1.412939e-02
-Error of spin 1 active space orbital 6: 1.892305e-02
-Error of spin 1 active space orbital 7: 5.695811e-02
+Error of spin 0 active space orbital 0: 3.991664e-03
+Error of spin 0 active space orbital 1: 7.675208e-03
+Error of spin 0 active space orbital 2: 2.171219e-03
+Error of spin 0 active space orbital 3: 3.833352e-03
+Error of spin 0 active space orbital 4: 1.545072e-02
+Error of spin 0 active space orbital 5: 1.694536e-02
+Error of spin 0 active space orbital 6: 3.162574e-03
+Error of spin 0 active space orbital 7: 1.863589e-02
+Error of spin 1 active space orbital 0: 7.662134e-03
+Error of spin 1 active space orbital 1: 3.310139e-03
+Error of spin 1 active space orbital 2: 4.774038e-03
+Error of spin 1 active space orbital 3: 1.484159e-02
+Error of spin 1 active space orbital 4: 8.693279e-03
+Error of spin 1 active space orbital 5: 9.825819e-03
+Error of spin 1 active space orbital 6: 7.659205e-03
+Error of spin 1 active space orbital 7: 4.065596e-02
 Refinement timings:
 rdm_ii_inv calculation: 0 seconds
 one electron part: 0 seconds
-AS two electron part: 6 seconds
+AS two electron part: 7 seconds
 Core-AS part: 0 seconds
 BSH part: 0 seconds
-Full function: 6 seconds
-Get as orbital updates took 6 seconds
-Highest as orbital error: 5.695811e-02
+Full function: 7 seconds
+Get as orbital updates took 7 seconds
+Highest as orbital error: 4.065596e-02
 Update Integrals
 Calculate all integrals: 1 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -7.377683e+01
-      Active Space - Two-electron energy  2.578208e+00
+      Active Space - One electron energy  -7.686974e+01
+      Active Space - Two-electron energy  2.597321e+00
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -7.119862e+01
+                            Total energy  -7.427242e+01
 CalculateEnergies took 0 seconds
 ---------------------------------------------------
 Start iteration step: 4
 CalculateLagrangeMultiplier took 0 seconds
-Error of spin 0 active space orbital 0: 4.208130e-03
-Error of spin 0 active space orbital 1: 5.900168e-03
-Error of spin 0 active space orbital 2: 9.492601e-04
-Error of spin 0 active space orbital 3: 2.154650e-03
-Error of spin 0 active space orbital 4: 1.165505e-02
-Error of spin 0 active space orbital 5: 2.098210e-02
-Error of spin 0 active space orbital 6: 4.886173e-03
-Error of spin 0 active space orbital 7: 9.577502e-03
-Error of spin 1 active space orbital 0: 5.661218e-03
-Error of spin 1 active space orbital 1: 1.642770e-03
-Error of spin 1 active space orbital 2: 2.383540e-03
-Error of spin 1 active space orbital 3: 1.168915e-02
-Error of spin 1 active space orbital 4: 9.145328e-03
-Error of spin 1 active space orbital 5: 1.324146e-02
-Error of spin 1 active space orbital 6: 1.647104e-02
-Error of spin 1 active space orbital 7: 3.643965e-02
+Error of spin 0 active space orbital 0: 3.125337e-03
+Error of spin 0 active space orbital 1: 5.960472e-03
+Error of spin 0 active space orbital 2: 1.541981e-03
+Error of spin 0 active space orbital 3: 2.055292e-03
+Error of spin 0 active space orbital 4: 1.222521e-02
+Error of spin 0 active space orbital 5: 1.376058e-02
+Error of spin 0 active space orbital 6: 2.904815e-03
+Error of spin 0 active space orbital 7: 1.393683e-02
+Error of spin 1 active space orbital 0: 5.642915e-03
+Error of spin 1 active space orbital 1: 2.533070e-03
+Error of spin 1 active space orbital 2: 3.020287e-03
+Error of spin 1 active space orbital 3: 1.109533e-02
+Error of spin 1 active space orbital 4: 6.200338e-03
+Error of spin 1 active space orbital 5: 7.700493e-03
+Error of spin 1 active space orbital 6: 6.554837e-03
+Error of spin 1 active space orbital 7: 3.059675e-02
 Refinement timings:
 rdm_ii_inv calculation: 0 seconds
 one electron part: 0 seconds
 AS two electron part: 6 seconds
 Core-AS part: 0 seconds
 BSH part: 0 seconds
-Full function: 6 seconds
-Get as orbital updates took 6 seconds
-Highest as orbital error: 3.643965e-02
+Full function: 7 seconds
+Get as orbital updates took 7 seconds
+Highest as orbital error: 3.059675e-02
 Update Integrals
 Calculate all integrals: 1 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -7.378915e+01
-      Active Space - Two-electron energy  2.577476e+00
+      Active Space - One electron energy  -7.687910e+01
+      Active Space - Two-electron energy  2.596725e+00
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -7.121168e+01
+                            Total energy  -7.428237e+01
 CalculateEnergies took 0 seconds
 Calculate all integrals: 1 seconds
 Orbital Multiplication: 0 seconds
-      Active Space - One electron energy  -7.378915e+01
-      Active Space - Two-electron energy  2.577476e+00
+      Active Space - One electron energy  -7.687910e+01
+      Active Space - Two-electron energy  2.596725e+00
               AS-Core correlation energy  0.000000e+00
                        Total core energy  0.000000e+00
                 Nuclear repulsion energy  0.000000e+00
-                            Total energy  -7.121168e+01
+                            Total energy  -7.428237e+01
 CalculateEnergies took 0 seconds
 Norm spin: 0 as orb 0:1.000000e+00
 Norm spin: 0 as orb 1:1.000000e+00
