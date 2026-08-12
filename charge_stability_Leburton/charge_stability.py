@@ -81,6 +81,7 @@ logger.info("Coulomb energy in effective units: %.6f", C_E0)
 # -----------------------------------------------------------------------------
 # Device geometry and sweep configuration
 # -----------------------------------------------------------------------------
+L = 10 * l0
 R = 30 / l0 # Dot radius
 d = 60 / (l0 * 1e9)  # Dot separation
 
@@ -89,13 +90,13 @@ JtoeV = e * 1 # J to eV conversion factor
 electrons_configurations = {
     1: [(1, 0), 2],
     2: [2, 6],
-    3: [(2, 1), 8],
-    4: [4, 10],
-    5: [(3, 2), 12],
-    6: [6, 14],
+    #3: [(2, 1), 8],
+    #4: [4, 10],
+    #5: [(3, 2), 12],
+    #6: [6, 14],
 }
 
-Vs = np.linspace(0, 1, 100) # V
+Vs = np.linspace(21, 29, 100) * 1e-3 # V
 
 # -----------------------------------------------------------------------------
 # Optimization parameters
@@ -162,15 +163,9 @@ for i, v_x in enumerate(Vs):
 
         results["runs"].append(run)
 
-        # Gate voltages
-        VL = SquareGate(x0=-L/2 - Lx_x/2, y0=0, z0=z_pot, Lx=L, Ly=L)
-        VR = SquareGate(x0=L/2 + Lx_x/2, y0=0, z0=z_pot, Lx=L, Ly=L)
-        VX = SquareGate(x0=0, y0=0, z0=z_pot, Lx=Lx_x, Ly=Ly_x)
-        gates = Gates([VL, VX, VR])
-        gates.add_voltages([v_x, -0.1, v_y])
 
         def potential(x, y):
-            return gates.Vi(x, y) * eVtoE0  # in effective units
+            return - v_x * np.exp(-((x + d/2)**2 + y**2) / (R**2)) - v_y * np.exp(-((x - d/2)**2 + y**2) / (R**2))
 
         candidate_ns = [
             n_electrons_stable - 1,
