@@ -159,7 +159,10 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
     integralsOS = fe.Integrals_open_shell(world)
 
     current = 0.0
+    energy = 0.0
     converged = False
+    converged_orbital = False
+    opti = None
     n_iterations = 0
     story = []
     converged_orbitals = []
@@ -167,9 +170,11 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
         kwargs["logger"].info("  > Starting SCF loop (max_iter=%s, econv=%g)", kwargs["max_iter"], kwargs["econv"])
 
     start_time = perf_counter()
-    
-    for iteration in range(kwargs["max_iter"]):
-        # Get initial effective Hamiltonian
+
+    if n_alpha + n_beta == 1:
+        # The one-electron problem has no electron-electron correlation to
+        # optimize.  The open-shell orbital refinement can return NaN orbitals
+        # for this case, so keep the valid single-particle/FCI result.
         c, h1, g2 = integralsOS.compute_effective_hamiltonian(
             [], [], orbitals_ab[0], orbitals_ab[1], mra_pot, kwargs["nuc_repulsion"]
         )
@@ -177,39 +182,58 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
         g2[1] = g2[1].transpose(0, 2, 1, 3) * kwargs["C_E0"]
         g2[2] = g2[2].transpose(0, 2, 1, 3) * kwargs["C_E0"]
 
-
-        # FCI calculation on active space
         e, fcivec = fci.direct_uhf.kernel(h1, g2, n_orbitals, (n_alpha, n_beta))
-        rdm1, rdm2 = fci.direct_uhf.make_rdm12s(fcivec, n_orbitals, (n_alpha, n_beta))
-        
-        rdm2 = np.swapaxes(rdm2, 1, 2)
-        rdm_2_phys_aa = rdm2[0].transpose(0, 2, 1, 3)  # again reordering to fit our convention
-        rdm_2_phys_ab = rdm2[1].transpose(0, 2, 1, 3)
-        rdm_2_phys_bb = rdm2[2].transpose(0, 2, 1, 3)
-
-        # Orbital refinement with core orbital refinement enabled
-        opti = fe.OrbitalRefinement_open_shell(world, mra_pot, kwargs["nuc_repulsion"])
-        core, orbitals_ab, converged_orbital = opti.refine_orbitals(
-            orbitals=[[], [], orbitals_ab[0], orbitals_ab[1]],
-            rdm1=rdm1,
-            rdm2=[rdm_2_phys_aa, rdm_2_phys_ab, rdm_2_phys_bb],
-            opt_thresh=kwargs["opt_thresh"], occ_thresh=kwargs["occ_thresh"],
-            maxiter=kwargs["max_iter_orbital_optimization"],
-            redirect_filename=f"madopt{iteration}.log",
-        )
-        converged_orbitals.append(converged_orbital)
-        n_iterations = iteration + 1
-
         energy = e + c
         story.append(energy)
-        
-        if np.isclose(energy, current, atol=kwargs["econv"]):
-            converged = True
-            if kwargs["logger"]:
-                kwargs["logger"].info("    converged after %s iterations | energy=%+.10f", n_iterations, energy)
-            break
-        
-        current = energy
+        n_iterations = 1
+        converged = True
+        converged_orbital = True
+        if kwargs["logger"]:
+            kwargs["logger"].info("    one-electron solve completed | energy=%+.10f", energy)
+
+    else:
+        for iteration in range(kwargs["max_iter"]):
+            # Get initial effective Hamiltonian
+            c, h1, g2 = integralsOS.compute_effective_hamiltonian(
+                [], [], orbitals_ab[0], orbitals_ab[1], mra_pot, kwargs["nuc_repulsion"]
+            )
+            g2[0] = g2[0].transpose(0, 2, 1, 3) * kwargs["C_E0"] # transform g tensors to chem ordering
+            g2[1] = g2[1].transpose(0, 2, 1, 3) * kwargs["C_E0"]
+            g2[2] = g2[2].transpose(0, 2, 1, 3) * kwargs["C_E0"]
+
+
+            # FCI calculation on active space
+            e, fcivec = fci.direct_uhf.kernel(h1, g2, n_orbitals, (n_alpha, n_beta))
+            rdm1, rdm2 = fci.direct_uhf.make_rdm12s(fcivec, n_orbitals, (n_alpha, n_beta))
+            
+            rdm2 = np.swapaxes(rdm2, 1, 2)
+            rdm_2_phys_aa = rdm2[0].transpose(0, 2, 1, 3)  # again reordering to fit our convention
+            rdm_2_phys_ab = rdm2[1].transpose(0, 2, 1, 3)
+            rdm_2_phys_bb = rdm2[2].transpose(0, 2, 1, 3)
+
+            # Orbital refinement with core orbital refinement enabled
+            opti = fe.OrbitalRefinement_open_shell(world, mra_pot, kwargs["nuc_repulsion"])
+            core, orbitals_ab, converged_orbital = opti.refine_orbitals(
+                orbitals=[[], [], orbitals_ab[0], orbitals_ab[1]],
+                rdm1=rdm1,
+                rdm2=[rdm_2_phys_aa, rdm_2_phys_ab, rdm_2_phys_bb],
+                opt_thresh=kwargs["opt_thresh"], occ_thresh=kwargs["occ_thresh"],
+                maxiter=kwargs["max_iter_orbital_optimization"],
+                redirect_filename=f"madopt{iteration}.log",
+            )
+            converged_orbitals.append(converged_orbital)
+            n_iterations = iteration + 1
+
+            energy = e + c
+            story.append(energy)
+            
+            if np.isclose(energy, current, atol=kwargs["econv"]):
+                converged = True
+                if kwargs["logger"]:
+                    kwargs["logger"].info("    converged after %s iterations | energy=%+.10f", n_iterations, energy)
+                break
+            
+            current = energy
 
     end_time = perf_counter()
 
