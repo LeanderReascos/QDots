@@ -19,7 +19,6 @@ import numpy as np
 from pyscf import fci
 import frayedends as fe
 
-from potentials import Gates, SquareGate
 from solvers import closed_shell_calculation, open_shell_calculation
 
 # -----------------------------------------------------------------------------

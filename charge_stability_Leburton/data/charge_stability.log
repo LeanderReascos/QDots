@@ -1,0 +1,14 @@
+18:04:52 | INFO     | 1 eV in effective units: 170.401009
+18:04:52 | INFO     | Coulomb energy in effective units: 4.907428
+18:04:52 | INFO     | Starting charge stability sweep for a double quantum dot, error: 1.00e-06 eV or 2.20e-03 effective units
+18:04:52 | INFO     | Incremental checkpoint: data/charge_stability_runs_4e55be5a9112.pkl
+18:04:52 | INFO     | Full results snapshot: data/charge_stability.pkl (every 10 completed points and at finish)
+18:04:52 | INFO     | 
+18:04:52 | INFO     | Voltage sweep
+18:04:52 | INFO     | voltage=0.021 V, 0.021 V
+18:04:52 | INFO     |   electrons=0
+18:04:52 | INFO     |   electrons=1
+18:04:52 | INFO     |   > Initialising MADNESS world
+18:04:52 | INFO     |   > Building MRA potential
+18:04:53 | INFO     |   > Solving single-particle orbitals
+18:05:03 | INFO     |   > Starting SCF loop (max_iter=100, econv=0.00219817)
