@@ -6,8 +6,10 @@ Ref: https://journals.aps.org/prb/pdf/10.1103/PhysRevB.110.205428
 
 from pathlib import Path
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
-from pickle import dump
+from pickle import HIGHEST_PROTOCOL, dump, load
 from time import time
+import hashlib
+import json
 import logging
 import os
 import faulthandler
@@ -55,6 +57,77 @@ def format_elapsed_time(seconds):
     hours, remainder = divmod(seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     return f"{int(hours)}h {int(minutes)}m {seconds:.2f}s"
+
+
+def read_positive_int_from_env(name, default):
+    try:
+        value = int(os.getenv(name, default))
+    except ValueError:
+        logger.warning("%s must be an integer; using %s", name, default)
+        return default
+
+    if value < 1:
+        logger.warning("%s must be positive; using %s", name, default)
+        return default
+
+    return value
+
+
+def should_fsync_checkpoints():
+    return os.getenv("QD_CHECKPOINT_FSYNC", "1").lower() not in {"0", "false", "no"}
+
+
+def build_sweep_hash(sweep_config):
+    payload = json.dumps(sweep_config, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:12]
+
+
+def append_pickle_record(path, record, fsync=True):
+    with path.open("ab") as f:
+        dump(record, f, protocol=HIGHEST_PROTOCOL)
+        f.flush()
+        if fsync:
+            os.fsync(f.fileno())
+
+
+def save_results_snapshot(results, path, fsync=True):
+    tmp_path = path.with_suffix(path.suffix + ".tmp")
+    with tmp_path.open("wb") as f:
+        dump(results, f, protocol=HIGHEST_PROTOCOL)
+        f.flush()
+        if fsync:
+            os.fsync(f.fileno())
+
+    os.replace(tmp_path, path)
+
+
+def load_checkpoint_runs(path, sweep_hash):
+    runs_by_grid_point = {}
+
+    if not path.exists():
+        return runs_by_grid_point
+
+    with path.open("rb") as f:
+        while True:
+            try:
+                record = load(f)
+            except EOFError:
+                break
+            except Exception as exc:
+                logger.warning("Stopped reading checkpoint %s after a partial/corrupt record: %s", path, exc)
+                break
+
+            if record.get("sweep_hash") != sweep_hash:
+                logger.warning("Ignoring checkpoint record with a different sweep hash in %s", path)
+                continue
+
+            if record.get("kind") != "run":
+                continue
+
+            key = (int(record["i"]), int(record["j"]))
+            runs_by_grid_point[key] = record["run"]
+
+    return runs_by_grid_point
 
 # -----------------------------------------------------------------------------
 # Paths and physical constants
@@ -113,6 +186,44 @@ max_iter_orbital_optimization = 5
 max_iter = 100
 
 # -----------------------------------------------------------------------------
+# Checkpoint and stored-output configuration
+# -----------------------------------------------------------------------------
+energy_plot_electron_counts = tuple(n for n in (1, 2) if n in electrons_configurations)
+full_save_interval_points = read_positive_int_from_env("QD_FULL_SAVE_INTERVAL", 10)
+checkpoint_fsync = should_fsync_checkpoints()
+
+sweep_config = {
+    "L": float(L),
+    "R": float(R),
+    "d": float(d),
+    "voltages": [float(v) for v in Vs],
+    "electrons_configurations": {
+        str(n): [list(electrons) if isinstance(electrons, tuple) else int(electrons), int(n_orbitals)]
+        for n, (electrons, n_orbitals) in electrons_configurations.items()
+    },
+    "energy_plot_electron_counts": [int(n) for n in energy_plot_electron_counts],
+    "eV_error": float(eV_error),
+    "e_conv": float(e_conv),
+    "thresh": float(thresh),
+    "opt_thresh": float(opt_thresh),
+    "max_iter": int(max_iter),
+    "max_iter_orbital_optimization": int(max_iter_orbital_optimization),
+}
+sweep_hash = build_sweep_hash(sweep_config)
+checkpoint_path = data_dir / f"charge_stability_runs_{sweep_hash}.pkl"
+
+if not checkpoint_path.exists() or checkpoint_path.stat().st_size == 0:
+    append_pickle_record(
+        checkpoint_path,
+        {
+            "kind": "header",
+            "sweep_hash": sweep_hash,
+            "sweep_config": sweep_config,
+        },
+        fsync=checkpoint_fsync,
+    )
+
+# -----------------------------------------------------------------------------
 # Result container
 # -----------------------------------------------------------------------------
 results = {
@@ -123,23 +234,48 @@ results = {
         "coulomb_energy_effective_units": float(C_E0),
         "eV_error_tolerance": float(eV_error),
         "e_conv_tolerance_effective_units": float(e_conv),
+        "voltage_grid": [float(v) for v in Vs],
+        "voltage_unit": "V",
+        "computed_voltage_region": "vL >= vR; use symmetry for vL < vR",
+        "energy_plot_electron_counts": [int(n) for n in energy_plot_electron_counts],
+        "checkpoint_file": str(checkpoint_path),
+        "checkpoint_sweep_hash": sweep_hash,
+        "full_save_interval_points": int(full_save_interval_points),
         "log_file": str(log_path),
     },
     "runs": [],
 }
 
+completed_runs_by_grid_point = load_checkpoint_runs(checkpoint_path, sweep_hash)
+n_stable_grid = {(0, 0): (0, 0.0)}  # Dictionary to store the stable configuration for each voltage point
+
+for (i, j), run in sorted(completed_runs_by_grid_point.items()):
+    results["runs"].append(run)
+    n_stable_grid[(i, j)] = (int(run["n_electrons"]), float(run["energy"]))
+
+results["charge_stability"] = n_stable_grid
+
 logger.info("Starting charge stability sweep for a double quantum dot, error: %.2e eV or %.2e effective units", eV_error, e_conv)
+logger.info("Incremental checkpoint: %s", checkpoint_path)
+logger.info("Full results snapshot: %s (every %s completed points and at finish)", results_path, full_save_interval_points)
+if completed_runs_by_grid_point:
+    logger.info("Loaded %s completed voltage points from checkpoint", len(completed_runs_by_grid_point))
 
 # -----------------------------------------------------------------------------
 # Main sweep loop
 # -----------------------------------------------------------------------------
 
-n_stable_grid = {(0, 0): (0, 0.0)}  # Dictionary to store the stable configuration for each voltage point
+completed_grid_points = set(completed_runs_by_grid_point)
+new_points_since_snapshot = 0
 
 for i, v_x in enumerate(Vs):
     for j, v_y in enumerate(Vs):
         # Since the results will be simetrical, we can skip half of the points
         if v_x < v_y:
+            continue
+
+        grid_key = (i, j)
+        if grid_key in completed_grid_points:
             continue
 
         start_time_per_point = time()
@@ -161,21 +297,19 @@ for i, v_x in enumerate(Vs):
         else:
             n_electrons_stable, _ = 0, 0
 
-        results["runs"].append(run)
-
-
         def potential(x, y):
             return - v_x * np.exp(-((x + d/2)**2 + y**2) / (R**2)) - v_y * np.exp(-((x - d/2)**2 + y**2) / (R**2))
 
-        candidate_ns = [
+        candidate_ns = {
             n_electrons_stable - 1,
             n_electrons_stable,
             n_electrons_stable + 1,
-        ]
-        candidate_ns = [
+        }
+        candidate_ns.update(energy_plot_electron_counts)
+        candidate_ns = sorted(
             n for n in candidate_ns
-            if 0 <= n <= max(electrons_configurations)
-        ]
+            if n == 0 or n in electrons_configurations
+        )
 
         for n_electrons in candidate_ns:
 
@@ -239,19 +373,39 @@ for i, v_x in enumerate(Vs):
         run["energy"] = float(energy_stable)
         run["n_electrons"] = int(n_electrons_stable)
 
+        results["runs"].append(run)
         n_stable_grid[(i, j)] = (n_electrons_stable, energy_stable)
         results["charge_stability"] = n_stable_grid
+        completed_grid_points.add(grid_key)
 
         logger.info("  stable configuration | electrons=%s | energy=%+.10f", n_electrons_stable, energy_stable)
 
-        with open(results_path, "wb") as f:
-            dump(results, f)
+        append_pickle_record(
+            checkpoint_path,
+            {
+                "kind": "run",
+                "sweep_hash": sweep_hash,
+                "i": int(i),
+                "j": int(j),
+                "run": run,
+            },
+            fsync=checkpoint_fsync,
+        )
+        new_points_since_snapshot += 1
+        logger.info("  checkpoint | appended completed point to %s", checkpoint_path)
+
+        if new_points_since_snapshot >= full_save_interval_points:
+            save_results_snapshot(results, results_path, fsync=checkpoint_fsync)
+            new_points_since_snapshot = 0
+            logger.info("  snapshot | refreshed %s", results_path)
 
         end_time_per_point = time()
         elapsed_time_per_point = end_time_per_point - start_time_per_point
         logger.info("  elapsed | %s", format_elapsed_time(elapsed_time_per_point))
         total_elapsed_time = end_time_per_point - start_time
         logger.info("  total elapsed | %s", format_elapsed_time(total_elapsed_time))
+
+save_results_snapshot(results, results_path, fsync=checkpoint_fsync)
 
 
 # -----------------------------------------------------------------------------
