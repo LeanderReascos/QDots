@@ -1,0 +1,129 @@
+8 active alpha orbitals and 8 active beta orbitals
+GiveInitialOrbitals took 0 seconds
+Calculate all integrals: 21 seconds
+Orbital Multiplication: 5 seconds
+      Active Space - One electron energy  -1.067272e+02
+      Active Space - Two-electron energy  2.739874e+00
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -1.039873e+02
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 0
+CalculateLagrangeMultiplier took 0 seconds
+Skip refinement of spin1active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Error of spin 0 active space orbital 0: 4.369203e-03
+Error of spin 0 active space orbital 1: 1.198409e-02
+Error of spin 0 active space orbital 2: 1.669921e-03
+Error of spin 0 active space orbital 3: 4.852192e-03
+Error of spin 0 active space orbital 4: 2.491715e-02
+Error of spin 0 active space orbital 5: 2.662777e-02
+Error of spin 0 active space orbital 6: 8.849412e-03
+Error of spin 0 active space orbital 7: 2.678329e-02
+Error of spin 1 active space orbital 0: 9.392032e-03
+Error of spin 1 active space orbital 1: 1.455998e-03
+Error of spin 1 active space orbital 2: 4.381437e-03
+Error of spin 1 active space orbital 3: 1.958779e-02
+Error of spin 1 active space orbital 4: 9.605611e-03
+Error of spin 1 active space orbital 5: 1.189898e-02
+Error of spin 1 active space orbital 6: 3.329129e-02
+Refinement timings:
+rdm_ii_inv calculation: 0 seconds
+one electron part: 1 seconds
+AS two electron part: 34 seconds
+Core-AS part: 0 seconds
+BSH part: 1 seconds
+Full function: 36 seconds
+Get as orbital updates took 36 seconds
+Highest as orbital error: 3.329129e-02
+Update Integrals
+Calculate all integrals: 19 seconds
+Orbital Multiplication: 5 seconds
+      Active Space - One electron energy  -1.067605e+02
+      Active Space - Two-electron energy  2.737576e+00
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -1.040229e+02
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 1
+CalculateLagrangeMultiplier took 0 seconds
+Skip refinement of spin1active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Error of spin 0 active space orbital 0: 3.317467e-03
+Error of spin 0 active space orbital 1: 1.118664e-02
+Error of spin 0 active space orbital 2: 9.524945e-04
+Error of spin 0 active space orbital 3: 3.786280e-03
+Error of spin 0 active space orbital 4: 2.270702e-02
+Error of spin 0 active space orbital 5: 2.101598e-02
+Error of spin 0 active space orbital 6: 4.181925e-03
+Error of spin 0 active space orbital 7: 2.162193e-02
+Error of spin 1 active space orbital 0: 7.533804e-03
+Error of spin 1 active space orbital 1: 7.715581e-04
+Error of spin 1 active space orbital 2: 2.469423e-03
+Error of spin 1 active space orbital 3: 1.587734e-02
+Error of spin 1 active space orbital 4: 6.440814e-03
+Error of spin 1 active space orbital 5: 8.707787e-03
+Error of spin 1 active space orbital 6: 2.230715e-02
+Refinement timings:
+rdm_ii_inv calculation: 0 seconds
+one electron part: 1 seconds
+AS two electron part: 32 seconds
+Core-AS part: 0 seconds
+BSH part: 1 seconds
+Full function: 34 seconds
+Get as orbital updates took 34 seconds
+Highest as orbital error: 2.270702e-02
+Update Integrals
+Calculate all integrals: 19 seconds
+Orbital Multiplication: 5 seconds
+      Active Space - One electron energy  -1.067859e+02
+      Active Space - Two-electron energy  2.735982e+00
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -1.040499e+02
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 2
+CalculateLagrangeMultiplier took 0 seconds
+Skip refinement of spin1active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
+Error of spin 0 active space orbital 0: 2.613637e-03
+Error of spin 0 active space orbital 1: 1.052693e-02
+Error of spin 0 active space orbital 2: 8.228120e-04
+Error of spin 0 active space orbital 3: 3.523467e-03
+Error of spin 0 active space orbital 4: 2.144618e-02
+Error of spin 0 active space orbital 5: 1.719263e-02
+Error of spin 0 active space orbital 6: 2.269170e-03
+Error of spin 0 active space orbital 7: 1.857253e-02
+Error of spin 1 active space orbital 0: 6.200241e-03
+Error of spin 1 active space orbital 1: 4.899727e-04
+Error of spin 1 active space orbital 2: 1.385389e-03
+Error of spin 1 active space orbital 3: 1.336576e-02
+Error of spin 1 active space orbital 4: 5.000218e-03
+Error of spin 1 active space orbital 5: 9.255914e-03
+Error of spin 1 active space orbital 6: 1.545837e-02
+Refinement timings:
+rdm_ii_inv calculation: 0 seconds
+one electron part: 1 seconds
+AS two electron part: 32 seconds
+Core-AS part: 0 seconds
+BSH part: 1 seconds
+Full function: 34 seconds
+Get as orbital updates took 34 seconds
+Highest as orbital error: 2.144618e-02
+Update Integrals
+Calculate all integrals: 19 seconds
+Orbital Multiplication: 5 seconds
+      Active Space - One electron energy  -1.068067e+02
+      Active Space - Two-electron energy  2.734889e+00
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -1.040718e+02
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 3
+CalculateLagrangeMultiplier took 0 seconds
+Skip refinement of spin1active space orbital 7, since the occupation is less than NO_occupation_thresh (1.000000e-05)
