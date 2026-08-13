@@ -2,11 +2,11 @@ from pathlib import Path
 from dataclasses import dataclass, field
 from pickle import HIGHEST_PROTOCOL, dump, load
 
+import faulthandler
 import hashlib
 import json
 import logging
 import os
-import faulthandler
 
 
 @dataclass
@@ -57,19 +57,32 @@ class LoggerSetup:
 
 
 @dataclass
-class DataSaveHelper:
-    logger: logging.Logger
-    fsync_env: str = "QD_CHECKPOINT_FSYNC"
+class DataHelper:
+    data_dir: Path | str = Path("data")
+    results_filename: str = "results.pkl"
+    checkpoint_glob: str | None = None
+    logger: logging.Logger | None = None
+    fsync_env: str = "CHECKPOINT_FSYNC"
+    results_path: Path = field(init=False)
+
+    def __post_init__(self):
+        self.data_dir = Path(self.data_dir)
+        self.data_dir.mkdir(parents=True, exist_ok=True)
+        self.results_path = self.data_dir / self.results_filename
+
+    def _warning(self, message, *args):
+        if self.logger is not None:
+            self.logger.warning(message, *args)
 
     def read_positive_int_from_env(self, name, default):
         try:
             value = int(os.getenv(name, default))
         except ValueError:
-            self.logger.warning("%s must be an integer; using %s", name, default)
+            self._warning("%s must be an integer; using %s", name, default)
             return default
 
         if value < 1:
-            self.logger.warning("%s must be positive; using %s", name, default)
+            self._warning("%s must be positive; using %s", name, default)
             return default
 
         return value
@@ -78,59 +91,86 @@ class DataSaveHelper:
         return os.getenv(self.fsync_env, "1").lower() not in {"0", "false", "no"}
 
     @staticmethod
-    def build_sweep_hash(sweep_config):
-        payload = json.dumps(sweep_config, sort_keys=True, separators=(",", ":"))
+    def build_hash(config):
+        payload = json.dumps(config, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:12]
 
     @staticmethod
-    def append_pickle_record(path, record, fsync=True):
-        path = Path(path)
+    def _resolve_path(path):
+        return Path(path)
+
+    def append_checkpoint_record(self, path, record, fsync=True):
+        path = self._resolve_path(path)
         with path.open("ab") as f:
             dump(record, f, protocol=HIGHEST_PROTOCOL)
             f.flush()
             if fsync:
                 os.fsync(f.fileno())
 
-    @staticmethod
-    def save_results_snapshot(results, path, fsync=True):
-        path = Path(path)
+    def save(self, data, path=None, fsync=True):
+        path = self.results_path if path is None else self._resolve_path(path)
         tmp_path = path.with_suffix(path.suffix + ".tmp")
         with tmp_path.open("wb") as f:
-            dump(results, f, protocol=HIGHEST_PROTOCOL)
+            dump(data, f, protocol=HIGHEST_PROTOCOL)
             f.flush()
             if fsync:
                 os.fsync(f.fileno())
 
         os.replace(tmp_path, path)
 
-    def load_checkpoint_runs(self, path, sweep_hash):
-        path = Path(path)
-        runs_by_grid_point = {}
+    def load(self, path=None, default=None):
+        path = self.results_path if path is None else self._resolve_path(path)
+        if not path.exists():
+            return default
+
+        with path.open("rb") as f:
+            return load(f)
+
+    def load_pickle_stream(self, path):
+        path = self._resolve_path(path)
+        records = []
 
         if not path.exists():
-            return runs_by_grid_point
+            return records
 
         with path.open("rb") as f:
             while True:
                 try:
-                    record = load(f)
+                    records.append(load(f))
                 except EOFError:
                     break
                 except Exception as exc:
-                    self.logger.warning("Stopped reading checkpoint %s after a partial/corrupt record: %s", path, exc)
+                    self._warning("Stopped reading %s after a partial/corrupt record: %s", path, exc)
                     break
 
-                if record.get("sweep_hash") != sweep_hash:
-                    self.logger.warning("Ignoring checkpoint record with a different sweep hash in %s", path)
-                    continue
+        return records
 
-                if record.get("kind") != "run":
-                    continue
+    def checkpoint_paths(self, checkpoint_glob=None):
+        checkpoint_glob = self.checkpoint_glob if checkpoint_glob is None else checkpoint_glob
+        if checkpoint_glob is None:
+            return []
 
-                key = (int(record["i"]), int(record["j"]))
-                runs_by_grid_point[key] = record["run"]
+        return sorted(self.data_dir.glob(checkpoint_glob), key=lambda path: path.stat().st_mtime)
 
-        return runs_by_grid_point
+    def newest_checkpoint_path(self, checkpoint_glob=None):
+        paths = self.checkpoint_paths(checkpoint_glob=checkpoint_glob)
+        return paths[-1] if paths else None
+
+    def load_checkpoint_records(self, path):
+        return self.load_pickle_stream(path)
+
+    def load_checkpoints(self, checkpoint_paths=None, checkpoint_glob=None):
+        paths = self.checkpoint_paths(checkpoint_glob=checkpoint_glob) if checkpoint_paths is None else checkpoint_paths
+        return {Path(path): self.load_checkpoint_records(path) for path in paths}
+
+    def load_data_with_checkpoints(self, results_path=None, default=None, checkpoint_paths=None, checkpoint_glob=None):
+        checkpoints = self.load_checkpoints(checkpoint_paths=checkpoint_paths, checkpoint_glob=checkpoint_glob)
+        checkpoint_records = [record for records in checkpoints.values() for record in records]
+        return {
+            "data": self.load(path=results_path, default=default),
+            "checkpoints": checkpoints,
+            "checkpoint_records": checkpoint_records,
+        }
 
 
 def format_elapsed_time(seconds):

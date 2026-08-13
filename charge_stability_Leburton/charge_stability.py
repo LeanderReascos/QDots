@@ -14,15 +14,20 @@ from pyscf import fci
 import frayedends as fe
 
 from solvers import closed_shell_calculation, open_shell_calculation
-from utils import DataSaveHelper, LoggerSetup
+from utils import DataHelper, LoggerSetup
 
 logging_setup = LoggerSetup(__name__, "charge_stability.pkl", "charge_stability.log")
-data_save_helper = DataSaveHelper(logger=logging_setup.logger)
 logger = logging_setup.logger
-data_dir = logging_setup.data_dir
-results_path = logging_setup.results_path
+data_helper = DataHelper(
+    data_dir=logging_setup.data_dir,
+    results_filename="charge_stability.pkl",
+    checkpoint_glob="charge_stability_runs_*.pkl",
+    logger=logger,
+    fsync_env="QD_CHECKPOINT_FSYNC",
+)
+data_dir = data_helper.data_dir
+results_path = data_helper.results_path
 log_path = logging_setup.log_path
-
 
 # -----------------------------------------------------------------------------
 # Paths and physical constants
@@ -84,8 +89,8 @@ max_iter = 100
 # Checkpoint and stored-output configuration
 # -----------------------------------------------------------------------------
 energy_plot_electron_counts = tuple(n for n in (1, 2) if n in electrons_configurations)
-full_save_interval_points = data_save_helper.read_positive_int_from_env("QD_FULL_SAVE_INTERVAL", 10)
-checkpoint_fsync = data_save_helper.should_fsync_checkpoints()
+full_save_interval_points = data_helper.read_positive_int_from_env("QD_FULL_SAVE_INTERVAL", 10)
+checkpoint_fsync = data_helper.should_fsync_checkpoints()
 
 sweep_config = {
     "L": float(L),
@@ -104,11 +109,11 @@ sweep_config = {
     "max_iter": int(max_iter),
     "max_iter_orbital_optimization": int(max_iter_orbital_optimization),
 }
-sweep_hash = data_save_helper.build_sweep_hash(sweep_config)
+sweep_hash = data_helper.build_hash(sweep_config)
 checkpoint_path = data_dir / f"charge_stability_runs_{sweep_hash}.pkl"
 
 if not checkpoint_path.exists() or checkpoint_path.stat().st_size == 0:
-    data_save_helper.append_pickle_record(
+    data_helper.append_checkpoint_record(
         checkpoint_path,
         {
             "kind": "header",
@@ -141,7 +146,18 @@ results = {
     "runs": [],
 }
 
-completed_runs_by_grid_point = data_save_helper.load_checkpoint_runs(checkpoint_path, sweep_hash)
+completed_runs_by_grid_point = {}
+for record in data_helper.load_checkpoint_records(checkpoint_path):
+    if record.get("sweep_hash") != sweep_hash:
+        logger.warning("Ignoring checkpoint record with a different sweep hash in %s", checkpoint_path)
+        continue
+
+    if record.get("kind") != "run":
+        continue
+
+    key = (int(record["i"]), int(record["j"]))
+    completed_runs_by_grid_point[key] = record["run"]
+
 n_stable_grid = {(0, 0): (0, 0.0)}  # Dictionary to store the stable configuration for each voltage point
 
 for (i, j), run in sorted(completed_runs_by_grid_point.items()):
@@ -275,7 +291,7 @@ for i, v_x in enumerate(Vs):
 
         logger.info("  stable configuration | electrons=%s | energy=%+.10f", n_electrons_stable, energy_stable)
 
-        data_save_helper.append_pickle_record(
+        data_helper.append_checkpoint_record(
             checkpoint_path,
             {
                 "kind": "run",
@@ -290,7 +306,7 @@ for i, v_x in enumerate(Vs):
         logger.info("  checkpoint | appended completed point to %s", checkpoint_path)
 
         if new_points_since_snapshot >= full_save_interval_points:
-            data_save_helper.save_results_snapshot(results, results_path, fsync=checkpoint_fsync)
+            data_helper.save(results, results_path, fsync=checkpoint_fsync)
             new_points_since_snapshot = 0
             logger.info("  snapshot | refreshed %s", results_path)
 
@@ -300,7 +316,7 @@ for i, v_x in enumerate(Vs):
         total_elapsed_time = end_time_per_point - start_time
         logger.info("  total elapsed | %s", format_elapsed_time(total_elapsed_time))
 
-data_save_helper.save_results_snapshot(results, results_path, fsync=checkpoint_fsync)
+data_helper.save(results, results_path, fsync=checkpoint_fsync)
 
 
 # -----------------------------------------------------------------------------
