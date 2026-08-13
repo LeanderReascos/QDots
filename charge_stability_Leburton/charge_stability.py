@@ -4,15 +4,9 @@ This example computes the charge stability diagram of a double quantum dot.
 Ref: https://journals.aps.org/prb/pdf/10.1103/PhysRevB.110.205428
 '''
 
+
 from pathlib import Path
-from contextlib import contextmanager, redirect_stderr, redirect_stdout
-from pickle import HIGHEST_PROTOCOL, dump, load
 from time import time
-import hashlib
-import json
-import logging
-import os
-import faulthandler
 
 import numpy as np
 
@@ -20,113 +14,15 @@ from pyscf import fci
 import frayedends as fe
 
 from solvers import closed_shell_calculation, open_shell_calculation
+from utils import DataSaveHelper, LoggerSetup
 
-# -----------------------------------------------------------------------------
-# Paths, logging, and helpers
-# -----------------------------------------------------------------------------
-data_dir = Path("data")
-data_dir.mkdir(parents=True, exist_ok=True)
-results_path = data_dir / "charge_stability.pkl"
-log_path = data_dir / "charge_stability.log"
+logging_setup = LoggerSetup(__name__, "charge_stability.pkl", "charge_stability.log")
+data_save_helper = DataSaveHelper(logger=logging_setup.logger)
+logger = logging_setup.logger
+data_dir = logging_setup.data_dir
+results_path = logging_setup.results_path
+log_path = logging_setup.log_path
 
-log_level_name = os.getenv("QD_LOG_LEVEL", "INFO").upper()
-log_level = getattr(logging, log_level_name, logging.INFO)
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-logger.handlers.clear()
-logger.propagate = False
-
-console_handler = logging.StreamHandler()
-console_handler.setLevel(log_level)
-console_handler.setFormatter(logging.Formatter("%(message)s"))
-
-file_handler = logging.FileHandler(log_path, mode="w")
-file_handler.setLevel(logging.DEBUG)
-file_handler.setFormatter(
-    logging.Formatter("%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%H:%M:%S")
-)
-
-logger.addHandler(console_handler)
-logger.addHandler(file_handler)
-faulthandler.enable()
-
-
-def format_elapsed_time(seconds):
-    hours, remainder = divmod(seconds, 3600)
-    minutes, seconds = divmod(remainder, 60)
-    return f"{int(hours)}h {int(minutes)}m {seconds:.2f}s"
-
-
-def read_positive_int_from_env(name, default):
-    try:
-        value = int(os.getenv(name, default))
-    except ValueError:
-        logger.warning("%s must be an integer; using %s", name, default)
-        return default
-
-    if value < 1:
-        logger.warning("%s must be positive; using %s", name, default)
-        return default
-
-    return value
-
-
-def should_fsync_checkpoints():
-    return os.getenv("QD_CHECKPOINT_FSYNC", "1").lower() not in {"0", "false", "no"}
-
-
-def build_sweep_hash(sweep_config):
-    payload = json.dumps(sweep_config, sort_keys=True, separators=(",", ":"))
-    return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:12]
-
-
-def append_pickle_record(path, record, fsync=True):
-    with path.open("ab") as f:
-        dump(record, f, protocol=HIGHEST_PROTOCOL)
-        f.flush()
-        if fsync:
-            os.fsync(f.fileno())
-
-
-def save_results_snapshot(results, path, fsync=True):
-    tmp_path = path.with_suffix(path.suffix + ".tmp")
-    with tmp_path.open("wb") as f:
-        dump(results, f, protocol=HIGHEST_PROTOCOL)
-        f.flush()
-        if fsync:
-            os.fsync(f.fileno())
-
-    os.replace(tmp_path, path)
-
-
-def load_checkpoint_runs(path, sweep_hash):
-    runs_by_grid_point = {}
-
-    if not path.exists():
-        return runs_by_grid_point
-
-    with path.open("rb") as f:
-        while True:
-            try:
-                record = load(f)
-            except EOFError:
-                break
-            except Exception as exc:
-                logger.warning("Stopped reading checkpoint %s after a partial/corrupt record: %s", path, exc)
-                break
-
-            if record.get("sweep_hash") != sweep_hash:
-                logger.warning("Ignoring checkpoint record with a different sweep hash in %s", path)
-                continue
-
-            if record.get("kind") != "run":
-                continue
-
-            key = (int(record["i"]), int(record["j"]))
-            runs_by_grid_point[key] = record["run"]
-
-    return runs_by_grid_point
 
 # -----------------------------------------------------------------------------
 # Paths and physical constants
@@ -188,8 +84,8 @@ max_iter = 100
 # Checkpoint and stored-output configuration
 # -----------------------------------------------------------------------------
 energy_plot_electron_counts = tuple(n for n in (1, 2) if n in electrons_configurations)
-full_save_interval_points = read_positive_int_from_env("QD_FULL_SAVE_INTERVAL", 10)
-checkpoint_fsync = should_fsync_checkpoints()
+full_save_interval_points = data_save_helper.read_positive_int_from_env("QD_FULL_SAVE_INTERVAL", 10)
+checkpoint_fsync = data_save_helper.should_fsync_checkpoints()
 
 sweep_config = {
     "L": float(L),
@@ -208,11 +104,11 @@ sweep_config = {
     "max_iter": int(max_iter),
     "max_iter_orbital_optimization": int(max_iter_orbital_optimization),
 }
-sweep_hash = build_sweep_hash(sweep_config)
+sweep_hash = data_save_helper.build_sweep_hash(sweep_config)
 checkpoint_path = data_dir / f"charge_stability_runs_{sweep_hash}.pkl"
 
 if not checkpoint_path.exists() or checkpoint_path.stat().st_size == 0:
-    append_pickle_record(
+    data_save_helper.append_pickle_record(
         checkpoint_path,
         {
             "kind": "header",
@@ -245,7 +141,7 @@ results = {
     "runs": [],
 }
 
-completed_runs_by_grid_point = load_checkpoint_runs(checkpoint_path, sweep_hash)
+completed_runs_by_grid_point = data_save_helper.load_checkpoint_runs(checkpoint_path, sweep_hash)
 n_stable_grid = {(0, 0): (0, 0.0)}  # Dictionary to store the stable configuration for each voltage point
 
 for (i, j), run in sorted(completed_runs_by_grid_point.items()):
@@ -379,7 +275,7 @@ for i, v_x in enumerate(Vs):
 
         logger.info("  stable configuration | electrons=%s | energy=%+.10f", n_electrons_stable, energy_stable)
 
-        append_pickle_record(
+        data_save_helper.append_pickle_record(
             checkpoint_path,
             {
                 "kind": "run",
@@ -394,7 +290,7 @@ for i, v_x in enumerate(Vs):
         logger.info("  checkpoint | appended completed point to %s", checkpoint_path)
 
         if new_points_since_snapshot >= full_save_interval_points:
-            save_results_snapshot(results, results_path, fsync=checkpoint_fsync)
+            data_save_helper.save_results_snapshot(results, results_path, fsync=checkpoint_fsync)
             new_points_since_snapshot = 0
             logger.info("  snapshot | refreshed %s", results_path)
 
@@ -404,7 +300,7 @@ for i, v_x in enumerate(Vs):
         total_elapsed_time = end_time_per_point - start_time
         logger.info("  total elapsed | %s", format_elapsed_time(total_elapsed_time))
 
-save_results_snapshot(results, results_path, fsync=checkpoint_fsync)
+data_save_helper.save_results_snapshot(results, results_path, fsync=checkpoint_fsync)
 
 
 # -----------------------------------------------------------------------------
