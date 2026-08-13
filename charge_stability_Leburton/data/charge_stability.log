@@ -1,26 +1,14 @@
-15:41:28 | INFO     | 1 eV in effective units: 61.344363
-15:41:28 | INFO     | Coulomb energy in effective units: 2.944457
-15:41:28 | INFO     | Starting charge stability sweep for a double quantum dot, error: 1.00e-07 eV or 7.91e-05 effective units
-15:41:28 | INFO     | Incremental checkpoint: data/charge_stability_runs_2f8e29660a61.pkl
-15:41:28 | INFO     | Full results snapshot: data/charge_stability.pkl (every 50 completed points and at finish)
-15:41:28 | INFO     | 
-15:41:28 | INFO     | Voltage sweep
-15:41:28 | INFO     | voltage=0.025 V, 0.025 V
-15:41:28 | INFO     |   electrons=0
-15:41:28 | INFO     |   electrons=1
-15:41:28 | INFO     |   > Initialising MADNESS world
-15:41:28 | INFO     |   > Building MRA potential
-15:41:29 | INFO     |   > Solving single-particle orbitals
-15:41:30 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
-15:41:32 | INFO     |     converged after 3 iterations | energy=+0.0055709077
-15:41:32 | DEBUG    | Removed 3 temporary files
-15:41:32 | INFO     |   result | energy=+0.0055709077 | iterations=3 | converged=True
-15:41:32 | INFO     |   stable configuration | electrons=0 | energy=+0.0000000000
-15:41:32 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_2f8e29660a61.pkl
-15:41:32 | INFO     |   elapsed | 0h 0m 3.88s
-15:41:32 | INFO     |   total elapsed | 0h 0m 3.89s
-15:41:32 | INFO     | 
-15:41:32 | INFO     | Finished
-15:41:32 | INFO     |   total time | 0h 0m 3.89s
-15:41:32 | INFO     |   data saved | data/charge_stability.pkl
-15:41:32 | INFO     |   log file   | data/charge_stability.log
+15:58:56 | INFO     | 1 eV in effective units: 61.344363
+15:58:56 | INFO     | Coulomb energy in effective units: 2.944457
+15:58:56 | INFO     | Starting charge stability sweep for a double quantum dot, error: 1.00e-07 eV or 7.91e-05 effective units
+15:58:56 | INFO     | Incremental checkpoint: data/charge_stability_runs_2f8e29660a61.pkl
+15:58:56 | INFO     | Full results snapshot: data/charge_stability.pkl (every 50 completed points and at finish)
+15:58:56 | INFO     | 
+15:58:56 | INFO     | Voltage sweep
+15:58:56 | INFO     | voltage=0.025 V, 0.025 V
+15:58:56 | INFO     |   electrons=0
+15:58:56 | INFO     |   electrons=1
+15:58:56 | INFO     |   > Initialising MADNESS world
+15:58:56 | INFO     |   > Building MRA potential
+15:58:57 | INFO     |   > Solving single-particle orbitals
+15:58:58 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)

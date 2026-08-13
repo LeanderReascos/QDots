@@ -262,7 +262,7 @@ for i, v_x in enumerate(Vs):
             n_electrons_stable, _ = 0, 0
 
         def potential(x, y):
-            return - v_x * np.exp(-((x + d/2)**2 + y**2) / (R**2)) - v_y * np.exp(-((x - d/2)**2 + y**2) / (R**2))
+            return - v_x /eVtoE0 * np.exp(-((x + d/2)**2 + y**2) / (R**2)) - v_y /eVtoE0 * np.exp(-((x - d/2)**2 + y**2) / (R**2))
 
         candidate_ns = {
             n_electrons_stable - 1,
