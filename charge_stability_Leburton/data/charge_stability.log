@@ -418,3 +418,656 @@
 16:19:59 | INFO     |   > Initialising MADNESS world
 16:19:59 | INFO     |   > Building MRA potential
 16:19:59 | INFO     |   > Solving single-particle orbitals
+16:20:02 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:20:05 | INFO     |     converged after 3 iterations | energy=-14.9758343587
+16:20:05 | DEBUG    | Removed 3 temporary files
+16:20:05 | INFO     |   result | energy=-14.9758343587 | iterations=3 | converged=True
+16:20:05 | INFO     |   electrons=2
+16:20:05 | INFO     |   > Initialising MADNESS world
+16:20:05 | INFO     |   > Building MRA potential
+16:20:05 | INFO     |   > Solving single-particle orbitals
+16:20:08 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:20:21 | INFO     |     converged after 3 iterations | energy=-27.1563959163
+16:20:21 | DEBUG    | Removed 2 temporary files
+16:20:21 | INFO     |   result | energy=-27.1563959163 | iterations=3 | converged=True
+16:20:21 | INFO     |   stable configuration | electrons=2 | energy=-27.1563959163
+16:20:21 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:20:21 | INFO     |   elapsed | 0h 0m 21.83s
+16:20:21 | INFO     |   total elapsed | 0h 5m 36.58s
+16:20:21 | INFO     | 
+16:20:21 | INFO     | Voltage sweep
+16:20:21 | INFO     | voltage=0.025 V, 0.025 V
+16:20:21 | INFO     |   electrons=1
+16:20:21 | INFO     |   > Initialising MADNESS world
+16:20:21 | INFO     |   > Building MRA potential
+16:20:21 | INFO     |   > Solving single-particle orbitals
+16:20:23 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:20:25 | INFO     |     converged after 3 iterations | energy=-15.0258796853
+16:20:25 | DEBUG    | Removed 3 temporary files
+16:20:25 | INFO     |   result | energy=-15.0258796853 | iterations=3 | converged=True
+16:20:25 | INFO     |   electrons=2
+16:20:25 | INFO     |   > Initialising MADNESS world
+16:20:25 | INFO     |   > Building MRA potential
+16:20:25 | INFO     |   > Solving single-particle orbitals
+16:20:27 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:20:39 | INFO     |     converged after 3 iterations | energy=-27.7610204919
+16:20:39 | DEBUG    | Removed 2 temporary files
+16:20:39 | INFO     |   result | energy=-27.7610204919 | iterations=3 | converged=True
+16:20:39 | INFO     |   stable configuration | electrons=2 | energy=-27.7610204919
+16:20:39 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:20:39 | INFO     |   elapsed | 0h 0m 18.33s
+16:20:39 | INFO     |   total elapsed | 0h 5m 54.91s
+16:20:39 | INFO     | 
+16:20:39 | INFO     | Voltage sweep
+16:20:39 | INFO     | voltage=0.025 V, 0.025 V
+16:20:39 | INFO     |   electrons=1
+16:20:39 | INFO     |   > Initialising MADNESS world
+16:20:39 | INFO     |   > Building MRA potential
+16:20:39 | INFO     |   > Solving single-particle orbitals
+16:20:41 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:20:42 | INFO     |     converged after 2 iterations | energy=-15.1676722647
+16:20:42 | DEBUG    | Removed 2 temporary files
+16:20:42 | INFO     |   result | energy=-15.1676722647 | iterations=2 | converged=True
+16:20:42 | INFO     |   electrons=2
+16:20:42 | INFO     |   > Initialising MADNESS world
+16:20:42 | INFO     |   > Building MRA potential
+16:20:42 | INFO     |   > Solving single-particle orbitals
+16:20:44 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:20:56 | INFO     |     converged after 3 iterations | energy=-28.3698723056
+16:20:56 | DEBUG    | Removed 2 temporary files
+16:20:56 | INFO     |   result | energy=-28.3698723056 | iterations=3 | converged=True
+16:20:56 | INFO     |   stable configuration | electrons=2 | energy=-28.3698723056
+16:20:56 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:20:56 | INFO     |   elapsed | 0h 0m 16.83s
+16:20:56 | INFO     |   total elapsed | 0h 6m 11.74s
+16:20:56 | INFO     | 
+16:20:56 | INFO     | Voltage sweep
+16:20:56 | INFO     | voltage=0.026 V, 0.021 V
+16:20:56 | INFO     |   electrons=1
+16:20:56 | INFO     |   > Initialising MADNESS world
+16:20:56 | INFO     |   > Building MRA potential
+16:20:56 | INFO     |   > Solving single-particle orbitals
+16:20:58 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:20:59 | INFO     |     converged after 2 iterations | energy=-15.4547096058
+16:20:59 | DEBUG    | Removed 2 temporary files
+16:20:59 | INFO     |   result | energy=-15.4547096058 | iterations=2 | converged=True
+16:20:59 | INFO     |   electrons=2
+16:20:59 | INFO     |   > Initialising MADNESS world
+16:20:59 | INFO     |   > Building MRA potential
+16:20:59 | INFO     |   > Solving single-particle orbitals
+16:21:01 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:21:13 | INFO     |     converged after 3 iterations | energy=-26.0051714989
+16:21:13 | DEBUG    | Removed 2 temporary files
+16:21:13 | INFO     |   result | energy=-26.0051714989 | iterations=3 | converged=True
+16:21:13 | INFO     |   stable configuration | electrons=2 | energy=-26.0051714989
+16:21:13 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:21:13 | INFO     |   elapsed | 0h 0m 16.96s
+16:21:13 | INFO     |   total elapsed | 0h 6m 28.70s
+16:21:13 | INFO     | 
+16:21:13 | INFO     | Voltage sweep
+16:21:13 | INFO     | voltage=0.026 V, 0.022 V
+16:21:13 | INFO     |   electrons=1
+16:21:13 | INFO     |   > Initialising MADNESS world
+16:21:13 | INFO     |   > Building MRA potential
+16:21:13 | INFO     |   > Solving single-particle orbitals
+16:21:15 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:21:16 | INFO     |     converged after 2 iterations | energy=-15.4846487508
+16:21:16 | DEBUG    | Removed 2 temporary files
+16:21:16 | INFO     |   result | energy=-15.4846487508 | iterations=2 | converged=True
+16:21:16 | INFO     |   electrons=2
+16:21:16 | INFO     |   > Initialising MADNESS world
+16:21:16 | INFO     |   > Building MRA potential
+16:21:16 | INFO     |   > Solving single-particle orbitals
+16:21:18 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:21:35 | INFO     |     converged after 4 iterations | energy=-26.5865310093
+16:21:35 | DEBUG    | Removed 2 temporary files
+16:21:35 | INFO     |   result | energy=-26.5865310093 | iterations=4 | converged=True
+16:21:35 | INFO     |   stable configuration | electrons=2 | energy=-26.5865310093
+16:21:35 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:21:35 | INFO     |   elapsed | 0h 0m 22.26s
+16:21:35 | INFO     |   total elapsed | 0h 6m 50.96s
+16:21:35 | INFO     | 
+16:21:35 | INFO     | Voltage sweep
+16:21:35 | INFO     | voltage=0.026 V, 0.023 V
+16:21:35 | INFO     |   electrons=1
+16:21:35 | INFO     |   > Initialising MADNESS world
+16:21:35 | INFO     |   > Building MRA potential
+16:21:35 | INFO     |   > Solving single-particle orbitals
+16:21:37 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:21:38 | INFO     |     converged after 2 iterations | energy=-15.5158878695
+16:21:38 | DEBUG    | Removed 2 temporary files
+16:21:38 | INFO     |   result | energy=-15.5158878695 | iterations=2 | converged=True
+16:21:38 | INFO     |   electrons=2
+16:21:38 | INFO     |   > Initialising MADNESS world
+16:21:38 | INFO     |   > Building MRA potential
+16:21:38 | INFO     |   > Solving single-particle orbitals
+16:21:40 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:21:52 | INFO     |     converged after 3 iterations | energy=-27.1766920979
+16:21:52 | DEBUG    | Removed 2 temporary files
+16:21:52 | INFO     |   result | energy=-27.1766920979 | iterations=3 | converged=True
+16:21:52 | INFO     |   stable configuration | electrons=2 | energy=-27.1766920979
+16:21:52 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:21:52 | INFO     |   elapsed | 0h 0m 16.41s
+16:21:52 | INFO     |   total elapsed | 0h 7m 7.37s
+16:21:52 | INFO     | 
+16:21:52 | INFO     | Voltage sweep
+16:21:52 | INFO     | voltage=0.026 V, 0.024 V
+16:21:52 | INFO     |   electrons=1
+16:21:52 | INFO     |   > Initialising MADNESS world
+16:21:52 | INFO     |   > Building MRA potential
+16:21:52 | INFO     |   > Solving single-particle orbitals
+16:21:54 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:21:55 | INFO     |     converged after 2 iterations | energy=-15.5490868186
+16:21:55 | DEBUG    | Removed 2 temporary files
+16:21:55 | INFO     |   result | energy=-15.5490868186 | iterations=2 | converged=True
+16:21:55 | INFO     |   electrons=2
+16:21:55 | INFO     |   > Initialising MADNESS world
+16:21:55 | INFO     |   > Building MRA potential
+16:21:55 | INFO     |   > Solving single-particle orbitals
+16:21:57 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:22:10 | INFO     |     converged after 3 iterations | energy=-27.7736225074
+16:22:10 | DEBUG    | Removed 2 temporary files
+16:22:10 | INFO     |   result | energy=-27.7736225074 | iterations=3 | converged=True
+16:22:10 | INFO     |   stable configuration | electrons=2 | energy=-27.7736225074
+16:22:10 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:22:10 | INFO     |   elapsed | 0h 0m 17.97s
+16:22:10 | INFO     |   total elapsed | 0h 7m 25.34s
+16:22:10 | INFO     | 
+16:22:10 | INFO     | Voltage sweep
+16:22:10 | INFO     | voltage=0.026 V, 0.025 V
+16:22:10 | INFO     |   electrons=1
+16:22:10 | INFO     |   > Initialising MADNESS world
+16:22:10 | INFO     |   > Building MRA potential
+16:22:10 | INFO     |   > Solving single-particle orbitals
+16:22:11 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:22:13 | INFO     |     converged after 3 iterations | energy=-15.5860344001
+16:22:13 | DEBUG    | Removed 3 temporary files
+16:22:13 | INFO     |   result | energy=-15.5860344001 | iterations=3 | converged=True
+16:22:13 | INFO     |   electrons=2
+16:22:13 | INFO     |   > Initialising MADNESS world
+16:22:13 | INFO     |   > Building MRA potential
+16:22:13 | INFO     |   > Solving single-particle orbitals
+16:22:15 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:22:27 | INFO     |     converged after 3 iterations | energy=-28.3758691230
+16:22:27 | DEBUG    | Removed 2 temporary files
+16:22:27 | INFO     |   result | energy=-28.3758691230 | iterations=3 | converged=True
+16:22:27 | INFO     |   stable configuration | electrons=2 | energy=-28.3758691230
+16:22:27 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:22:27 | INFO     |   elapsed | 0h 0m 17.35s
+16:22:27 | INFO     |   total elapsed | 0h 7m 42.69s
+16:22:27 | INFO     | 
+16:22:27 | INFO     | Voltage sweep
+16:22:27 | INFO     | voltage=0.026 V, 0.025 V
+16:22:27 | INFO     |   electrons=1
+16:22:27 | INFO     |   > Initialising MADNESS world
+16:22:27 | INFO     |   > Building MRA potential
+16:22:27 | INFO     |   > Solving single-particle orbitals
+16:22:29 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:22:31 | INFO     |     converged after 3 iterations | energy=-15.6344011049
+16:22:31 | DEBUG    | Removed 3 temporary files
+16:22:31 | INFO     |   result | energy=-15.6344011049 | iterations=3 | converged=True
+16:22:31 | INFO     |   electrons=2
+16:22:31 | INFO     |   > Initialising MADNESS world
+16:22:31 | INFO     |   > Building MRA potential
+16:22:31 | INFO     |   > Solving single-particle orbitals
+16:22:33 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:22:44 | INFO     |     converged after 3 iterations | energy=-28.9826171154
+16:22:44 | DEBUG    | Removed 2 temporary files
+16:22:44 | INFO     |   result | energy=-28.9826171154 | iterations=3 | converged=True
+16:22:44 | INFO     |   stable configuration | electrons=2 | energy=-28.9826171154
+16:22:44 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:22:44 | INFO     |   elapsed | 0h 0m 17.49s
+16:22:44 | INFO     |   total elapsed | 0h 8m 0.17s
+16:22:44 | INFO     | 
+16:22:44 | INFO     | Voltage sweep
+16:22:44 | INFO     | voltage=0.026 V, 0.026 V
+16:22:44 | INFO     |   electrons=1
+16:22:44 | INFO     |   > Initialising MADNESS world
+16:22:44 | INFO     |   > Building MRA potential
+16:22:44 | INFO     |   > Solving single-particle orbitals
+16:22:46 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:22:48 | INFO     |     converged after 2 iterations | energy=-15.7729643951
+16:22:48 | DEBUG    | Removed 2 temporary files
+16:22:48 | INFO     |   result | energy=-15.7729643951 | iterations=2 | converged=True
+16:22:48 | INFO     |   electrons=2
+16:22:48 | INFO     |   > Initialising MADNESS world
+16:22:48 | INFO     |   > Building MRA potential
+16:22:48 | INFO     |   > Solving single-particle orbitals
+16:22:49 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:23:01 | INFO     |     converged after 3 iterations | energy=-29.5933651995
+16:23:01 | DEBUG    | Removed 2 temporary files
+16:23:01 | INFO     |   result | energy=-29.5933651995 | iterations=3 | converged=True
+16:23:01 | INFO     |   stable configuration | electrons=2 | energy=-29.5933651995
+16:23:01 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:23:01 | INFO     |   elapsed | 0h 0m 16.65s
+16:23:01 | INFO     |   total elapsed | 0h 8m 16.82s
+16:23:01 | INFO     | 
+16:23:01 | INFO     | Voltage sweep
+16:23:01 | INFO     | voltage=0.027 V, 0.021 V
+16:23:01 | INFO     |   electrons=1
+16:23:01 | INFO     |   > Initialising MADNESS world
+16:23:01 | INFO     |   > Building MRA potential
+16:23:01 | INFO     |   > Solving single-particle orbitals
+16:23:03 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:23:04 | INFO     |     converged after 2 iterations | energy=-16.0401329363
+16:23:04 | DEBUG    | Removed 2 temporary files
+16:23:04 | INFO     |   result | energy=-16.0401329363 | iterations=2 | converged=True
+16:23:04 | INFO     |   electrons=2
+16:23:04 | INFO     |   > Initialising MADNESS world
+16:23:04 | INFO     |   > Building MRA potential
+16:23:04 | INFO     |   > Solving single-particle orbitals
+16:23:06 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:23:42 | INFO     |     converged after 7 iterations | energy=-26.6467791240
+16:23:42 | DEBUG    | Removed 2 temporary files
+16:23:42 | INFO     |   result | energy=-26.6467791240 | iterations=7 | converged=True
+16:23:42 | INFO     |   stable configuration | electrons=2 | energy=-26.6467791240
+16:23:42 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:23:42 | INFO     |   elapsed | 0h 0m 41.13s
+16:23:42 | INFO     |   total elapsed | 0h 8m 57.96s
+16:23:42 | INFO     | 
+16:23:42 | INFO     | Voltage sweep
+16:23:42 | INFO     | voltage=0.027 V, 0.022 V
+16:23:42 | INFO     |   electrons=1
+16:23:42 | INFO     |   > Initialising MADNESS world
+16:23:42 | INFO     |   > Building MRA potential
+16:23:42 | INFO     |   > Solving single-particle orbitals
+16:23:44 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:23:45 | INFO     |     converged after 2 iterations | energy=-16.0688146164
+16:23:45 | DEBUG    | Removed 2 temporary files
+16:23:45 | INFO     |   result | energy=-16.0688146164 | iterations=2 | converged=True
+16:23:45 | INFO     |   electrons=2
+16:23:45 | INFO     |   > Initialising MADNESS world
+16:23:45 | INFO     |   > Building MRA potential
+16:23:45 | INFO     |   > Solving single-particle orbitals
+16:23:48 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:24:00 | INFO     |     converged after 3 iterations | energy=-27.2162555765
+16:24:00 | DEBUG    | Removed 2 temporary files
+16:24:00 | INFO     |   result | energy=-27.2162555765 | iterations=3 | converged=True
+16:24:00 | INFO     |   stable configuration | electrons=2 | energy=-27.2162555765
+16:24:00 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:24:00 | INFO     |   elapsed | 0h 0m 17.96s
+16:24:00 | INFO     |   total elapsed | 0h 9m 15.92s
+16:24:00 | INFO     | 
+16:24:00 | INFO     | Voltage sweep
+16:24:00 | INFO     | voltage=0.027 V, 0.023 V
+16:24:00 | INFO     |   electrons=1
+16:24:00 | INFO     |   > Initialising MADNESS world
+16:24:00 | INFO     |   > Building MRA potential
+16:24:00 | INFO     |   > Solving single-particle orbitals
+16:24:02 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:24:03 | INFO     |     converged after 2 iterations | energy=-16.0984228476
+16:24:03 | DEBUG    | Removed 2 temporary files
+16:24:03 | INFO     |   result | energy=-16.0984228476 | iterations=2 | converged=True
+16:24:03 | INFO     |   electrons=2
+16:24:03 | INFO     |   > Initialising MADNESS world
+16:24:03 | INFO     |   > Building MRA potential
+16:24:03 | INFO     |   > Solving single-particle orbitals
+16:24:05 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:24:17 | INFO     |     converged after 3 iterations | energy=-27.8017153409
+16:24:17 | DEBUG    | Removed 2 temporary files
+16:24:17 | INFO     |   result | energy=-27.8017153409 | iterations=3 | converged=True
+16:24:17 | INFO     |   stable configuration | electrons=2 | energy=-27.8017153409
+16:24:17 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:24:17 | INFO     |   elapsed | 0h 0m 16.43s
+16:24:17 | INFO     |   total elapsed | 0h 9m 32.35s
+16:24:17 | INFO     | 
+16:24:17 | INFO     | Voltage sweep
+16:24:17 | INFO     | voltage=0.027 V, 0.024 V
+16:24:17 | INFO     |   electrons=1
+16:24:17 | INFO     |   > Initialising MADNESS world
+16:24:17 | INFO     |   > Building MRA potential
+16:24:17 | INFO     |   > Solving single-particle orbitals
+16:24:19 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:24:20 | INFO     |     converged after 2 iterations | energy=-16.1292497341
+16:24:20 | DEBUG    | Removed 2 temporary files
+16:24:20 | INFO     |   result | energy=-16.1292497341 | iterations=2 | converged=True
+16:24:20 | INFO     |   electrons=2
+16:24:20 | INFO     |   > Initialising MADNESS world
+16:24:20 | INFO     |   > Building MRA potential
+16:24:20 | INFO     |   > Solving single-particle orbitals
+16:24:22 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:24:34 | INFO     |     converged after 3 iterations | energy=-28.3950135598
+16:24:34 | DEBUG    | Removed 2 temporary files
+16:24:34 | INFO     |   result | energy=-28.3950135598 | iterations=3 | converged=True
+16:24:34 | INFO     |   stable configuration | electrons=2 | energy=-28.3950135598
+16:24:34 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:24:34 | INFO     |   elapsed | 0h 0m 17.14s
+16:24:34 | INFO     |   total elapsed | 0h 9m 49.49s
+16:24:34 | INFO     | 
+16:24:34 | INFO     | Voltage sweep
+16:24:34 | INFO     | voltage=0.027 V, 0.025 V
+16:24:34 | INFO     |   electrons=1
+16:24:34 | INFO     |   > Initialising MADNESS world
+16:24:34 | INFO     |   > Building MRA potential
+16:24:34 | INFO     |   > Solving single-particle orbitals
+16:24:36 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:24:37 | INFO     |     converged after 2 iterations | energy=-16.1619045938
+16:24:37 | DEBUG    | Removed 2 temporary files
+16:24:37 | INFO     |   result | energy=-16.1619045938 | iterations=2 | converged=True
+16:24:37 | INFO     |   electrons=2
+16:24:37 | INFO     |   > Initialising MADNESS world
+16:24:37 | INFO     |   > Building MRA potential
+16:24:37 | INFO     |   > Solving single-particle orbitals
+16:24:39 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:24:50 | INFO     |     converged after 3 iterations | energy=-28.9945433835
+16:24:50 | DEBUG    | Removed 2 temporary files
+16:24:50 | INFO     |   result | energy=-28.9945433835 | iterations=3 | converged=True
+16:24:50 | INFO     |   stable configuration | electrons=2 | energy=-28.9945433835
+16:24:50 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:24:50 | INFO     |   elapsed | 0h 0m 16.55s
+16:24:50 | INFO     |   total elapsed | 0h 10m 6.03s
+16:24:50 | INFO     | 
+16:24:50 | INFO     | Voltage sweep
+16:24:50 | INFO     | voltage=0.027 V, 0.025 V
+16:24:50 | INFO     |   electrons=1
+16:24:50 | INFO     |   > Initialising MADNESS world
+16:24:50 | INFO     |   > Building MRA potential
+16:24:50 | INFO     |   > Solving single-particle orbitals
+16:24:52 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:24:54 | INFO     |     converged after 3 iterations | energy=-16.1980435356
+16:24:54 | DEBUG    | Removed 3 temporary files
+16:24:54 | INFO     |   result | energy=-16.1980435356 | iterations=3 | converged=True
+16:24:54 | INFO     |   electrons=2
+16:24:54 | INFO     |   > Initialising MADNESS world
+16:24:54 | INFO     |   > Building MRA potential
+16:24:54 | INFO     |   > Solving single-particle orbitals
+16:24:56 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:25:08 | INFO     |     converged after 3 iterations | energy=-29.5990496009
+16:25:08 | DEBUG    | Removed 2 temporary files
+16:25:08 | INFO     |   result | energy=-29.5990496009 | iterations=3 | converged=True
+16:25:08 | INFO     |   stable configuration | electrons=2 | energy=-29.5990496009
+16:25:08 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:25:08 | INFO     |   elapsed | 0h 0m 17.51s
+16:25:08 | INFO     |   total elapsed | 0h 10m 23.54s
+16:25:08 | INFO     | 
+16:25:08 | INFO     | Voltage sweep
+16:25:08 | INFO     | voltage=0.027 V, 0.026 V
+16:25:08 | INFO     |   electrons=1
+16:25:08 | INFO     |   > Initialising MADNESS world
+16:25:08 | INFO     |   > Building MRA potential
+16:25:08 | INFO     |   > Solving single-particle orbitals
+16:25:10 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:25:12 | INFO     |     converged after 3 iterations | energy=-16.2448302111
+16:25:12 | DEBUG    | Removed 3 temporary files
+16:25:12 | INFO     |   result | energy=-16.2448302111 | iterations=3 | converged=True
+16:25:12 | INFO     |   electrons=2
+16:25:12 | INFO     |   > Initialising MADNESS world
+16:25:12 | INFO     |   > Building MRA potential
+16:25:12 | INFO     |   > Solving single-particle orbitals
+16:25:14 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:25:25 | INFO     |     converged after 3 iterations | energy=-30.2078070814
+16:25:25 | DEBUG    | Removed 2 temporary files
+16:25:25 | INFO     |   result | energy=-30.2078070814 | iterations=3 | converged=True
+16:25:25 | INFO     |   stable configuration | electrons=2 | energy=-30.2078070814
+16:25:25 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:25:25 | INFO     |   elapsed | 0h 0m 17.68s
+16:25:25 | INFO     |   total elapsed | 0h 10m 41.22s
+16:25:25 | INFO     | 
+16:25:25 | INFO     | Voltage sweep
+16:25:25 | INFO     | voltage=0.027 V, 0.027 V
+16:25:25 | INFO     |   electrons=1
+16:25:25 | INFO     |   > Initialising MADNESS world
+16:25:25 | INFO     |   > Building MRA potential
+16:25:26 | INFO     |   > Solving single-particle orbitals
+16:25:27 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:25:28 | INFO     |     converged after 2 iterations | energy=-16.3801881520
+16:25:28 | DEBUG    | Removed 2 temporary files
+16:25:28 | INFO     |   result | energy=-16.3801881520 | iterations=2 | converged=True
+16:25:28 | INFO     |   electrons=2
+16:25:28 | INFO     |   > Initialising MADNESS world
+16:25:28 | INFO     |   > Building MRA potential
+16:25:29 | INFO     |   > Solving single-particle orbitals
+16:25:30 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:25:42 | INFO     |     converged after 3 iterations | energy=-30.8203554969
+16:25:42 | DEBUG    | Removed 2 temporary files
+16:25:42 | INFO     |   result | energy=-30.8203554969 | iterations=3 | converged=True
+16:25:42 | INFO     |   stable configuration | electrons=2 | energy=-30.8203554969
+16:25:42 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:25:42 | INFO     |   elapsed | 0h 0m 16.86s
+16:25:42 | INFO     |   total elapsed | 0h 10m 58.08s
+16:25:42 | INFO     | 
+16:25:42 | INFO     | Voltage sweep
+16:25:42 | INFO     | voltage=0.028 V, 0.021 V
+16:25:42 | INFO     |   electrons=1
+16:25:42 | INFO     |   > Initialising MADNESS world
+16:25:42 | INFO     |   > Building MRA potential
+16:25:42 | INFO     |   > Solving single-particle orbitals
+16:25:44 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:25:45 | INFO     |     converged after 2 iterations | energy=-16.6284172768
+16:25:45 | DEBUG    | Removed 2 temporary files
+16:25:45 | INFO     |   result | energy=-16.6284172768 | iterations=2 | converged=True
+16:25:45 | INFO     |   electrons=2
+16:25:45 | INFO     |   > Initialising MADNESS world
+16:25:45 | INFO     |   > Building MRA potential
+16:25:45 | INFO     |   > Solving single-particle orbitals
+16:25:47 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:26:32 | INFO     |     converged after 8 iterations | energy=-27.3173192652
+16:26:32 | DEBUG    | Removed 2 temporary files
+16:26:32 | INFO     |   result | energy=-27.3173192652 | iterations=8 | converged=True
+16:26:32 | INFO     |   stable configuration | electrons=2 | energy=-27.3173192652
+16:26:32 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:26:32 | INFO     |   elapsed | 0h 0m 49.52s
+16:26:32 | INFO     |   total elapsed | 0h 11m 47.59s
+16:26:32 | INFO     | 
+16:26:32 | INFO     | Voltage sweep
+16:26:32 | INFO     | voltage=0.028 V, 0.022 V
+16:26:32 | INFO     |   electrons=1
+16:26:32 | INFO     |   > Initialising MADNESS world
+16:26:32 | INFO     |   > Building MRA potential
+16:26:32 | INFO     |   > Solving single-particle orbitals
+16:26:34 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:26:35 | INFO     |     converged after 2 iterations | energy=-16.6561154942
+16:26:35 | DEBUG    | Removed 2 temporary files
+16:26:35 | INFO     |   result | energy=-16.6561154942 | iterations=2 | converged=True
+16:26:35 | INFO     |   electrons=2
+16:26:35 | INFO     |   > Initialising MADNESS world
+16:26:35 | INFO     |   > Building MRA potential
+16:26:35 | INFO     |   > Solving single-particle orbitals
+16:26:37 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:27:07 | INFO     |     converged after 6 iterations | energy=-27.8569414298
+16:27:07 | DEBUG    | Removed 2 temporary files
+16:27:07 | INFO     |   result | energy=-27.8569414298 | iterations=6 | converged=True
+16:27:07 | INFO     |   stable configuration | electrons=2 | energy=-27.8569414298
+16:27:07 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:27:07 | INFO     |   elapsed | 0h 0m 34.91s
+16:27:07 | INFO     |   total elapsed | 0h 12m 22.51s
+16:27:07 | INFO     | 
+16:27:07 | INFO     | Voltage sweep
+16:27:07 | INFO     | voltage=0.028 V, 0.023 V
+16:27:07 | INFO     |   electrons=1
+16:27:07 | INFO     |   > Initialising MADNESS world
+16:27:07 | INFO     |   > Building MRA potential
+16:27:07 | INFO     |   > Solving single-particle orbitals
+16:27:09 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:27:10 | INFO     |     converged after 2 iterations | energy=-16.6845332904
+16:27:10 | DEBUG    | Removed 2 temporary files
+16:27:10 | INFO     |   result | energy=-16.6845332904 | iterations=2 | converged=True
+16:27:10 | INFO     |   electrons=2
+16:27:10 | INFO     |   > Initialising MADNESS world
+16:27:10 | INFO     |   > Building MRA potential
+16:27:10 | INFO     |   > Solving single-particle orbitals
+16:27:12 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:27:28 | INFO     |     converged after 4 iterations | energy=-28.4328317991
+16:27:28 | DEBUG    | Removed 2 temporary files
+16:27:28 | INFO     |   result | energy=-28.4328317991 | iterations=4 | converged=True
+16:27:28 | INFO     |   stable configuration | electrons=2 | energy=-28.4328317991
+16:27:28 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:27:28 | INFO     |   elapsed | 0h 0m 21.74s
+16:27:28 | INFO     |   total elapsed | 0h 12m 44.25s
+16:27:28 | INFO     | 
+16:27:28 | INFO     | Voltage sweep
+16:27:28 | INFO     | voltage=0.028 V, 0.024 V
+16:27:28 | INFO     |   electrons=1
+16:27:28 | INFO     |   > Initialising MADNESS world
+16:27:28 | INFO     |   > Building MRA potential
+16:27:29 | INFO     |   > Solving single-particle orbitals
+16:27:30 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:27:31 | INFO     |     converged after 2 iterations | energy=-16.7138245715
+16:27:31 | DEBUG    | Removed 2 temporary files
+16:27:31 | INFO     |   result | energy=-16.7138245715 | iterations=2 | converged=True
+16:27:31 | INFO     |   electrons=2
+16:27:31 | INFO     |   > Initialising MADNESS world
+16:27:31 | INFO     |   > Building MRA potential
+16:27:32 | INFO     |   > Solving single-particle orbitals
+16:27:33 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:27:45 | INFO     |     converged after 3 iterations | energy=-29.0209555408
+16:27:45 | DEBUG    | Removed 2 temporary files
+16:27:45 | INFO     |   result | energy=-29.0209555408 | iterations=3 | converged=True
+16:27:45 | INFO     |   stable configuration | electrons=2 | energy=-29.0209555408
+16:27:45 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:27:45 | INFO     |   elapsed | 0h 0m 16.48s
+16:27:45 | INFO     |   total elapsed | 0h 13m 0.73s
+16:27:45 | INFO     | 
+16:27:45 | INFO     | Voltage sweep
+16:27:45 | INFO     | voltage=0.028 V, 0.025 V
+16:27:45 | INFO     |   electrons=1
+16:27:45 | INFO     |   > Initialising MADNESS world
+16:27:45 | INFO     |   > Building MRA potential
+16:27:45 | INFO     |   > Solving single-particle orbitals
+16:27:47 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:27:48 | INFO     |     converged after 2 iterations | energy=-16.7442590123
+16:27:48 | DEBUG    | Removed 2 temporary files
+16:27:48 | INFO     |   result | energy=-16.7442590123 | iterations=2 | converged=True
+16:27:48 | INFO     |   electrons=2
+16:27:48 | INFO     |   > Initialising MADNESS world
+16:27:48 | INFO     |   > Building MRA potential
+16:27:48 | INFO     |   > Solving single-particle orbitals
+16:27:50 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:28:02 | INFO     |     converged after 3 iterations | energy=-29.6171327316
+16:28:02 | DEBUG    | Removed 2 temporary files
+16:28:02 | INFO     |   result | energy=-29.6171327316 | iterations=3 | converged=True
+16:28:02 | INFO     |   stable configuration | electrons=2 | energy=-29.6171327316
+16:28:02 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:28:02 | INFO     |   elapsed | 0h 0m 16.97s
+16:28:02 | INFO     |   total elapsed | 0h 13m 17.70s
+16:28:02 | INFO     | 
+16:28:02 | INFO     | Voltage sweep
+16:28:02 | INFO     | voltage=0.028 V, 0.025 V
+16:28:02 | INFO     |   electrons=1
+16:28:02 | INFO     |   > Initialising MADNESS world
+16:28:02 | INFO     |   > Building MRA potential
+16:28:02 | INFO     |   > Solving single-particle orbitals
+16:28:04 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:28:05 | INFO     |     converged after 2 iterations | energy=-16.7763989058
+16:28:05 | DEBUG    | Removed 2 temporary files
+16:28:05 | INFO     |   result | energy=-16.7763989058 | iterations=2 | converged=True
+16:28:05 | INFO     |   electrons=2
+16:28:05 | INFO     |   > Initialising MADNESS world
+16:28:05 | INFO     |   > Building MRA potential
+16:28:05 | INFO     |   > Solving single-particle orbitals
+16:28:07 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:28:19 | INFO     |     converged after 3 iterations | energy=-30.2191023430
+16:28:19 | DEBUG    | Removed 2 temporary files
+16:28:19 | INFO     |   result | energy=-30.2191023430 | iterations=3 | converged=True
+16:28:19 | INFO     |   stable configuration | electrons=2 | energy=-30.2191023430
+16:28:19 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:28:19 | INFO     |   elapsed | 0h 0m 17.08s
+16:28:19 | INFO     |   total elapsed | 0h 13m 34.78s
+16:28:19 | INFO     | 
+16:28:19 | INFO     | Voltage sweep
+16:28:19 | INFO     | voltage=0.028 V, 0.026 V
+16:28:19 | INFO     |   electrons=1
+16:28:19 | INFO     |   > Initialising MADNESS world
+16:28:19 | INFO     |   > Building MRA potential
+16:28:19 | INFO     |   > Solving single-particle orbitals
+16:28:21 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:28:23 | INFO     |     converged after 3 iterations | energy=-16.8117779614
+16:28:23 | DEBUG    | Removed 3 temporary files
+16:28:23 | INFO     |   result | energy=-16.8117779614 | iterations=3 | converged=True
+16:28:23 | INFO     |   electrons=2
+16:28:23 | INFO     |   > Initialising MADNESS world
+16:28:23 | INFO     |   > Building MRA potential
+16:28:23 | INFO     |   > Solving single-particle orbitals
+16:28:25 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:28:37 | INFO     |     converged after 3 iterations | energy=-30.8257494327
+16:28:37 | DEBUG    | Removed 2 temporary files
+16:28:37 | INFO     |   result | energy=-30.8257494327 | iterations=3 | converged=True
+16:28:37 | INFO     |   stable configuration | electrons=2 | energy=-30.8257494327
+16:28:37 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:28:37 | INFO     |   elapsed | 0h 0m 17.53s
+16:28:37 | INFO     |   total elapsed | 0h 13m 52.31s
+16:28:37 | INFO     | 
+16:28:37 | INFO     | Voltage sweep
+16:28:37 | INFO     | voltage=0.028 V, 0.027 V
+16:28:37 | INFO     |   electrons=1
+16:28:37 | INFO     |   > Initialising MADNESS world
+16:28:37 | INFO     |   > Building MRA potential
+16:28:37 | INFO     |   > Solving single-particle orbitals
+16:28:38 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:28:40 | INFO     |     converged after 3 iterations | energy=-16.8570792353
+16:28:40 | DEBUG    | Removed 3 temporary files
+16:28:40 | INFO     |   result | energy=-16.8570792353 | iterations=3 | converged=True
+16:28:40 | INFO     |   electrons=2
+16:28:40 | INFO     |   > Initialising MADNESS world
+16:28:40 | INFO     |   > Building MRA potential
+16:28:40 | INFO     |   > Solving single-particle orbitals
+16:28:42 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:28:54 | INFO     |     converged after 3 iterations | energy=-31.4364132325
+16:28:54 | DEBUG    | Removed 2 temporary files
+16:28:54 | INFO     |   result | energy=-31.4364132325 | iterations=3 | converged=True
+16:28:54 | INFO     |   stable configuration | electrons=2 | energy=-31.4364132325
+16:28:54 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:28:54 | INFO     |   elapsed | 0h 0m 17.34s
+16:28:54 | INFO     |   total elapsed | 0h 14m 9.66s
+16:28:54 | INFO     | 
+16:28:54 | INFO     | Voltage sweep
+16:28:54 | INFO     | voltage=0.028 V, 0.028 V
+16:28:54 | INFO     |   electrons=1
+16:28:54 | INFO     |   > Initialising MADNESS world
+16:28:54 | INFO     |   > Building MRA potential
+16:28:54 | INFO     |   > Solving single-particle orbitals
+16:28:56 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:28:57 | INFO     |     converged after 2 iterations | energy=-16.9892630421
+16:28:57 | DEBUG    | Removed 2 temporary files
+16:28:57 | INFO     |   result | energy=-16.9892630421 | iterations=2 | converged=True
+16:28:57 | INFO     |   electrons=2
+16:28:57 | INFO     |   > Initialising MADNESS world
+16:28:57 | INFO     |   > Building MRA potential
+16:28:57 | INFO     |   > Solving single-particle orbitals
+16:28:59 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:29:10 | INFO     |     converged after 3 iterations | energy=-32.0506740323
+16:29:11 | DEBUG    | Removed 2 temporary files
+16:29:11 | INFO     |   result | energy=-32.0506740323 | iterations=3 | converged=True
+16:29:11 | INFO     |   stable configuration | electrons=2 | energy=-32.0506740323
+16:29:11 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:29:11 | INFO     |   elapsed | 0h 0m 16.62s
+16:29:11 | INFO     |   total elapsed | 0h 14m 26.27s
+16:29:11 | INFO     | 
+16:29:11 | INFO     | Voltage sweep
+16:29:11 | INFO     | voltage=0.029 V, 0.021 V
+16:29:11 | INFO     |   electrons=1
+16:29:11 | INFO     |   > Initialising MADNESS world
+16:29:11 | INFO     |   > Building MRA potential
+16:29:11 | INFO     |   > Solving single-particle orbitals
+16:29:12 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:29:13 | INFO     |     converged after 2 iterations | energy=-17.2192560288
+16:29:13 | DEBUG    | Removed 2 temporary files
+16:29:13 | INFO     |   result | energy=-17.2192560288 | iterations=2 | converged=True
+16:29:13 | INFO     |   electrons=2
+16:29:13 | INFO     |   > Initialising MADNESS world
+16:29:13 | INFO     |   > Building MRA potential
+16:29:14 | INFO     |   > Solving single-particle orbitals
+16:29:15 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:29:35 | INFO     |     converged after 4 iterations | energy=-28.0822274130
+16:29:35 | DEBUG    | Removed 2 temporary files
+16:29:35 | INFO     |   result | energy=-28.0822274130 | iterations=4 | converged=True
+16:29:35 | INFO     |   stable configuration | electrons=2 | energy=-28.0822274130
+16:29:35 | INFO     |   checkpoint | appended completed point to data/charge_stability_runs_476cd5197895.pkl
+16:29:35 | INFO     |   elapsed | 0h 0m 24.17s
+16:29:35 | INFO     |   total elapsed | 0h 14m 50.45s
+16:29:35 | INFO     | 
+16:29:35 | INFO     | Voltage sweep
+16:29:35 | INFO     | voltage=0.029 V, 0.022 V
+16:29:35 | INFO     |   electrons=1
+16:29:35 | INFO     |   > Initialising MADNESS world
+16:29:35 | INFO     |   > Building MRA potential
+16:29:35 | INFO     |   > Solving single-particle orbitals
+16:29:37 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
+16:29:38 | INFO     |     converged after 2 iterations | energy=-17.2461479158
+16:29:38 | DEBUG    | Removed 2 temporary files
+16:29:38 | INFO     |   result | energy=-17.2461479158 | iterations=2 | converged=True
+16:29:38 | INFO     |   electrons=2
+16:29:38 | INFO     |   > Initialising MADNESS world
+16:29:38 | INFO     |   > Building MRA potential
+16:29:38 | INFO     |   > Solving single-particle orbitals
+16:29:40 | INFO     |   > Starting SCF loop (max_iter=100, econv=7.91342e-05)
