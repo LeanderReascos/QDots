@@ -74,7 +74,7 @@ logger.info("Coulomb energy in effective units: %.6f", C_E0)
 # -----------------------------------------------------------------------------
 # Device geometry and sweep configuration
 # -----------------------------------------------------------------------------
-chemical_potential = -16.5
+chemical_potential = -16.5e-3 # eV
 
 L = 1 # l0 units
 R = 30 / (l0 * 1e9)  # Dot radius
@@ -91,7 +91,7 @@ electrons_configurations = {
     #6: [6, 14],
 }
 
-Vs = np.linspace(21, 29, 10) * 1e-3  # V
+Vs = np.linspace(21, 29, 5) * 1e-3  # V
 
 # -----------------------------------------------------------------------------
 # Optimization parameters
@@ -325,9 +325,14 @@ for i, v_x in enumerate(Vs):
 
             logger.info("  result | energy=%+.10f | iterations=%s | converged=%s", result["energy"], result["n_iterations"], result["converged"])
 
+
+        grand_canonical_energy = {}
+        for n_electrons in candidate_ns:
+            grand_canonical_energy[n_electrons] = run["points"][n_electrons]["energy"] - n_electrons * chemical_potential * JtoeV / E0
+
         best_result = min(
-            run["points"].values(),
-            key=lambda result: result["energy"]
+            (run["points"][n_electrons] for n_electrons in candidate_ns),
+            key=lambda r: grand_canonical_energy[r["n_electrons"]],
         )
 
         energy_stable = best_result["energy"]
