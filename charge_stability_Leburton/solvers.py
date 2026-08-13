@@ -158,8 +158,7 @@ def open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, **kwargs):
     orbitals_ab = [orbitals, orbitals]
     integralsOS = fe.Integrals_open_shell(world)
 
-    current = 0.0
-    energy = 0.0
+    current = np.inf
     converged = False
     converged_orbital = False
     opti = None

@@ -153,8 +153,8 @@ logger.info("Coulomb energy in effective units: %.6f", C_E0)
 # -----------------------------------------------------------------------------
 # Device geometry and sweep configuration
 # -----------------------------------------------------------------------------
-L = 10 * l0
-R = 30 / l0 # Dot radius
+L = 1 # l0 units
+R = 30 / (l0 * 1e9)  # Dot radius
 d = 60 / (l0 * 1e9)  # Dot separation
 
 JtoeV = e * 1 # J to eV conversion factor
@@ -228,7 +228,7 @@ if not checkpoint_path.exists() or checkpoint_path.stat().st_size == 0:
 results = {
     "metadata": {
         "description": "Charge stability sweep for a double quantum dot.",
-        "length_scale_nm": 50.0,
+        "length_scale_nm": l0 * 1e9,
         "effective_units_reference_energy": float(E0),
         "coulomb_energy_effective_units": float(C_E0),
         "eV_error_tolerance": float(eV_error),
