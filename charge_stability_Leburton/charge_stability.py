@@ -353,8 +353,6 @@ for i, v_x in enumerate(Vs):
         logger.info("  total elapsed | %s", format_elapsed_time(total_elapsed_time))
 
 data_helper.save(results, fsync=checkpoint_fsync)
-
-
 # -----------------------------------------------------------------------------
 # Final summary
 # -----------------------------------------------------------------------------
