@@ -151,8 +151,32 @@ results = {
     "runs": [],
 }
 
+loaded_data = data_helper.load_data_with_checkpoints(
+    default={"metadata": {}, "runs": [], "charge_stability": {}},
+    checkpoint_paths=[checkpoint_path],
+)
+full_results = loaded_data["data"] or {"metadata": {}, "runs": [], "charge_stability": {}}
 completed_runs_by_grid_point = {}
-for record in data_helper.load_checkpoint_records(checkpoint_path):
+
+
+def grid_key_from_run(run):
+    v_l = float(run["vL"])
+    v_r = float(run["vR"])
+    i = int(np.argmin(np.abs(Vs - v_l)))
+    j = int(np.argmin(np.abs(Vs - v_r)))
+    return i, j
+
+
+full_snapshot_sweep_hash = full_results.get("metadata", {}).get("checkpoint_sweep_hash")
+if full_snapshot_sweep_hash == sweep_hash:
+    for run in full_results.get("runs", []):
+        completed_runs_by_grid_point[grid_key_from_run(run)] = run
+elif full_results.get("runs"):
+    logger.warning("Ignoring full results snapshot with a different sweep hash in %s", results_path)
+completed_full_snapshot_points = len(completed_runs_by_grid_point)
+
+checkpoint_runs_by_grid_point = {}
+for record in loaded_data["checkpoint_records"]:
     if record.get("sweep_hash") != sweep_hash:
         logger.warning("Ignoring checkpoint record with a different sweep hash in %s", checkpoint_path)
         continue
@@ -161,7 +185,9 @@ for record in data_helper.load_checkpoint_records(checkpoint_path):
         continue
 
     key = (int(record["i"]), int(record["j"]))
-    completed_runs_by_grid_point[key] = record["run"]
+    checkpoint_runs_by_grid_point[key] = record["run"]
+
+completed_runs_by_grid_point.update(checkpoint_runs_by_grid_point)
 
 n_stable_grid = {(0, 0): (0, 0.0)}  # Dictionary to store the stable configuration for each voltage point
 
@@ -175,7 +201,12 @@ logger.info("Starting charge stability sweep for a double quantum dot, error: %.
 logger.info("Incremental checkpoint: %s", checkpoint_path)
 logger.info("Full results snapshot: %s (every %s completed points and at finish)", results_path, full_save_interval_points)
 if completed_runs_by_grid_point:
-    logger.info("Loaded %s completed voltage points from checkpoint", len(completed_runs_by_grid_point))
+    logger.info(
+        "Loaded %s completed voltage points (%s from full snapshot, %s from checkpoint)",
+        len(completed_runs_by_grid_point),
+        completed_full_snapshot_points,
+        len(checkpoint_runs_by_grid_point),
+    )
 
 # -----------------------------------------------------------------------------
 # Main sweep loop
