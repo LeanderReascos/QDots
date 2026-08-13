@@ -74,7 +74,7 @@ logger.info("Coulomb energy in effective units: %.6f", C_E0)
 # -----------------------------------------------------------------------------
 # Device geometry and sweep configuration
 # -----------------------------------------------------------------------------
-chemical_potential = 
+chemical_potential = -16.5
 
 L = 1 # l0 units
 R = 30 / (l0 * 1e9)  # Dot radius
