@@ -91,7 +91,7 @@ electrons_configurations = {
     #6: [6, 14],
 }
 
-Vs = np.linspace(21, 29, 5) * 1e-3  # V
+Vs = np.linspace(21, 29, 100) * 1e-3  # V
 
 # -----------------------------------------------------------------------------
 # Optimization parameters
