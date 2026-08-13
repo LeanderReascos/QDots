@@ -74,13 +74,13 @@ electrons_configurations = {
     #6: [6, 14],
 }
 
-Vs = np.linspace(21, 29, 100) * 1e-3 # V
+Vs = np.linspace(21, 29, 10) * 1e-3 # V
 
 # -----------------------------------------------------------------------------
 # Optimization parameters
 # -----------------------------------------------------------------------------
 
-eV_error = 1e-6
+eV_error = 1e-7
 
 thresh = min(eV_error * JtoeV / E0 / 10, 1e-5)  # Set MADNESS threshold to be an order of magnitude smaller than the desired energy error
 e_conv = eV_error * JtoeV / E0  # Convert eV error to effective units
@@ -252,7 +252,6 @@ for i, v_x in enumerate(Vs):
             n_electrons_stable,
             n_electrons_stable + 1,
         }
-        candidate_ns.update(energy_plot_electron_counts)
         candidate_ns = sorted(
             n for n in candidate_ns
             if n == 0 or n in electrons_configurations
