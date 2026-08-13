@@ -89,7 +89,7 @@ electrons_configurations = {
     #6: [6, 14],
 }
 
-Vs = [25] * 1e-3 # V
+Vs = np.array([25]) * 1e-3  # V
 
 # -----------------------------------------------------------------------------
 # Optimization parameters
@@ -303,15 +303,14 @@ for i, v_x in enumerate(Vs):
                     "n_alpha": int(n_alpha),
                     "n_beta": int(n_beta),
                 })
-                result_calculation = open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, C_E0=C_E0, econv=e_conv, nuc_repulsion=0.0, max_iter=max_iter, logger=logger, get_potential=False,
-                                                    opt_thresh=opt_thresh, max_iter_orbital_optimization=max_iter_orbital_optimization, thresh=thresh)
+                result_calculation = open_shell_calculation(potential, L, n_alpha, n_beta, n_orbitals, C_E0=C_E0, econv=e_conv, nuc_repulsion=0.0, max_iter=max_iter, logger=logger, get_potential=save_potential, opt_thresh=opt_thresh, max_iter_orbital_optimization=max_iter_orbital_optimization, thresh=thresh)
 
             else:
                 result.update({
                     "n_alpha": int(n_electrons // 2),
                     "n_beta": int(n_electrons // 2),
                 })
-                result_calculation = closed_shell_calculation(potential, L, n_electrons, n_orbitals, C_E0=C_E0, econv=e_conv, max_iter=max_iter, logger=logger, get_potential=False, opt_thresh=opt_thresh, max_iter_orbital_optimization=max_iter_orbital_optimization, thresh=thresh)
+                result_calculation = closed_shell_calculation(potential, L, n_electrons, n_orbitals, C_E0=C_E0, econv=e_conv, max_iter=max_iter, logger=logger, get_potential=save_potential, opt_thresh=opt_thresh, max_iter_orbital_optimization=max_iter_orbital_optimization, thresh=thresh)
 
             result.update(result_calculation)
             run["points"][n_electrons] = result
