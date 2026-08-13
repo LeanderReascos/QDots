@@ -1,0 +1,52 @@
+8 active alpha orbitals and 8 active beta orbitals
+GiveInitialOrbitals took 0 seconds
+Calculate all integrals: 19 seconds
+Orbital Multiplication: 4 seconds
+      Active Space - One electron energy  -8.611020e+01
+      Active Space - Two-electron energy  4.035707e+00
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -8.207449e+01
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 0
+CalculateLagrangeMultiplier took 0 seconds
+Error of spin 0 active space orbital 0: 2.666423e-04
+Error of spin 0 active space orbital 1: 2.807856e-04
+Error of spin 0 active space orbital 2: 1.802990e-04
+Error of spin 0 active space orbital 3: 3.231842e-04
+Error of spin 0 active space orbital 4: 2.025231e-04
+Error of spin 0 active space orbital 5: 1.197953e-03
+Error of spin 0 active space orbital 6: 7.718142e-04
+Error of spin 0 active space orbital 7: 2.303395e-03
+Error of spin 1 active space orbital 0: 2.012477e-04
+Error of spin 1 active space orbital 1: 2.047227e-04
+Error of spin 1 active space orbital 2: 8.844037e-04
+Error of spin 1 active space orbital 3: 2.000031e-03
+Error of spin 1 active space orbital 4: 4.739452e-04
+Error of spin 1 active space orbital 5: 3.226067e-04
+Error of spin 1 active space orbital 6: 1.153831e-03
+Error of spin 1 active space orbital 7: 2.295613e-02
+Refinement timings:
+rdm_ii_inv calculation: 0 seconds
+one electron part: 1 seconds
+AS two electron part: 33 seconds
+Core-AS part: 0 seconds
+BSH part: 0 seconds
+Full function: 36 seconds
+Get as orbital updates took 36 seconds
+Highest as orbital error: 2.295613e-02
+Update Integrals
+Calculate all integrals: 18 seconds
+Orbital Multiplication: 5 seconds
+      Active Space - One electron energy  -8.611045e+01
+      Active Space - Two-electron energy  4.035434e+00
+              AS-Core correlation energy  0.000000e+00
+                       Total core energy  0.000000e+00
+                Nuclear repulsion energy  0.000000e+00
+                            Total energy  -8.207502e+01
+CalculateEnergies took 0 seconds
+---------------------------------------------------
+Start iteration step: 1
+CalculateLagrangeMultiplier took 0 seconds
