@@ -173,6 +173,42 @@ class DataHelper:
         }
 
 
+def cleanup_matching_files(patterns, directories=None, logger=None):
+    if isinstance(patterns, str):
+        patterns = (patterns,)
+    if directories is None:
+        directories = (Path.cwd(),)
+
+    removed = []
+    seen_paths = set()
+    for directory in directories:
+        directory = Path(directory)
+        if not directory.exists():
+            continue
+
+        for pattern in patterns:
+            for path in directory.glob(pattern):
+                if not path.is_file():
+                    continue
+
+                resolved_path = path.resolve()
+                if resolved_path in seen_paths:
+                    continue
+                seen_paths.add(resolved_path)
+
+                try:
+                    path.unlink()
+                except FileNotFoundError:
+                    continue
+                except OSError as exc:
+                    if logger is not None:
+                        logger.warning("Could not remove temporary file %s: %s", path, exc)
+                else:
+                    removed.append(path)
+
+    return removed
+
+
 def format_elapsed_time(seconds):
     hours, remainder = divmod(seconds, 3600)
     minutes, seconds = divmod(remainder, 60)

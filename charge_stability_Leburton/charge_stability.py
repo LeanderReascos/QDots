@@ -7,6 +7,7 @@ Ref: https://journals.aps.org/prb/pdf/10.1103/PhysRevB.110.205428
 
 from pathlib import Path
 from time import time
+import atexit
 
 import numpy as np
 
@@ -14,7 +15,7 @@ from pyscf import fci
 import frayedends as fe
 
 from solvers import closed_shell_calculation, open_shell_calculation
-from utils import DataHelper, LoggerSetup, format_elapsed_time
+from utils import DataHelper, LoggerSetup, cleanup_matching_files, format_elapsed_time
 
 logging_setup = LoggerSetup(
     __name__,
@@ -33,6 +34,20 @@ data_helper = DataHelper(
 data_dir = data_helper.data_dir
 results_path = data_helper.results_path
 log_path = logging_setup.log_path
+script_dir = Path(__file__).resolve().parent
+temp_file_patterns = ("mad*.log", "potential.dat")
+temp_file_dirs = (Path.cwd(), script_dir)
+
+
+def cleanup_temp_files():
+    removed = cleanup_matching_files(temp_file_patterns, temp_file_dirs, logger=logger)
+    if removed:
+        logger.debug("Removed %s temporary files", len(removed))
+    return removed
+
+
+atexit.register(cleanup_temp_files)
+cleanup_temp_files()
 
 # -----------------------------------------------------------------------------
 # Paths and physical constants
@@ -74,7 +89,7 @@ electrons_configurations = {
     #6: [6, 14],
 }
 
-Vs = np.linspace(21, 29, 10) * 1e-3 # V
+Vs = [25] * 1e-3 # V
 
 # -----------------------------------------------------------------------------
 # Optimization parameters
@@ -89,6 +104,8 @@ opt_thresh = e_conv / 10  # Set orbital optimization threshold to be an order of
 
 max_iter_orbital_optimization = 5
 max_iter = 100
+
+save_potential = True  # Set to True to save the potential along the x-axis for each voltage point
 
 # -----------------------------------------------------------------------------
 # Checkpoint and stored-output configuration
@@ -299,9 +316,7 @@ for i, v_x in enumerate(Vs):
             result.update(result_calculation)
             run["points"][n_electrons] = result
 
-            # Clean temp logs files:
-            for temp_file in Path('.').glob('mad*.log'):
-                temp_file.unlink()
+            cleanup_temp_files()
 
             if not result["converged"]:
                 logger.warning("    reached max_iter without convergence | energy=%+.10f", result["energy"])
