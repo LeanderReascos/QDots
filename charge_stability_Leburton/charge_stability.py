@@ -141,7 +141,7 @@ e = 1.602176634e-19     # C
 epsilon_0 = 8.854187817e-12  # F/m (vacuum permittivity)
 epsilon_r = 12.9  # Relative permittivity for GaAs
 
-l0 = 50e-9  # 50 nm in meters
+l0 = 30e-9  # 50 nm in meters
 E0 = hbar**2 / (m_GaAs * l0**2) 
 
 eVtoE0 = e * 1 / epsilon_r / E0  # 1 eV in effective units
