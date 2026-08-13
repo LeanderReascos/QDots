@@ -65,7 +65,7 @@ epsilon_r = 12.9  # Relative permittivity for GaAs
 l0 = 30e-9  # 50 nm in meters
 E0 = hbar**2 / (m_GaAs * l0**2) 
 
-eVtoE0 = e * 1 / epsilon_r / E0  # 1 eV in effective units
+eVtoE0 = e * 1 / E0  # 1 eV in effective units
 C_E0 = e**2 / (4 * np.pi * epsilon_0 * epsilon_r * l0) * 1 / E0  # Coulomb energy in effective units
 
 logger.info("1 eV in effective units: %.6f", eVtoE0)
@@ -89,7 +89,7 @@ electrons_configurations = {
     #6: [6, 14],
 }
 
-Vs = np.array([25]) * 1e-3  # V
+Vs = np.linspace(21, 29, 10) * 1e-3  # V
 
 # -----------------------------------------------------------------------------
 # Optimization parameters
@@ -262,13 +262,14 @@ for i, v_x in enumerate(Vs):
             n_electrons_stable, _ = 0, 0
 
         def potential(x, y):
-            return - v_x /eVtoE0 * np.exp(-((x + d/2)**2 + y**2) / (R**2)) - v_y /eVtoE0 * np.exp(-((x - d/2)**2 + y**2) / (R**2))
+            return - v_x * eVtoE0 * np.exp(-((x + d/2)**2 + y**2) / (R**2)) - v_y * eVtoE0 * np.exp(-((x - d/2)**2 + y**2) / (R**2))
 
         candidate_ns = {
             n_electrons_stable - 1,
             n_electrons_stable,
             n_electrons_stable + 1,
         }
+        candidate_ns.update(energy_plot_electron_counts)
         candidate_ns = sorted(
             n for n in candidate_ns
             if n == 0 or n in electrons_configurations

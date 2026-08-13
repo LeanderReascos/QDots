@@ -1,0 +1,151 @@
+Potential loaded
+Order of the first monomial: 0
+Counter: 1 and current num: 10
+First non-zero: 0
+order with first non-zero: 0
+All zero
+0 0 
+Order of the first monomial: 1
+Counter: 2 and current num: 10
+First non-zero: 0
+order with first non-zero: 1
+First non-zero: 0
+0 1 
+Counter: 3 and current num: 10
+First non-zero: 0
+order with first non-zero: 0
+First non-zero: 1
+Break
+Order of the first monomial: 2
+Counter: 4 and current num: 10
+First non-zero: 0
+order with first non-zero: 2
+First non-zero: 0
+1 1 
+Counter: 5 and current num: 10
+First non-zero: 0
+order with first non-zero: 1
+First non-zero: 0
+0 2 
+Counter: 6 and current num: 10
+First non-zero: 0
+order with first non-zero: 0
+First non-zero: 1
+Break
+Order of the first monomial: 3
+Counter: 7 and current num: 10
+First non-zero: 0
+order with first non-zero: 3
+First non-zero: 0
+2 1 
+Counter: 8 and current num: 10
+First non-zero: 0
+order with first non-zero: 2
+First non-zero: 0
+1 2 
+Counter: 9 and current num: 10
+First non-zero: 0
+order with first non-zero: 1
+First non-zero: 0
+0 3 
+Counter: 10 and current num: 10
+Return guesses
+-1.759950e+04
+-1.710608e+04
+-2.510592e+03
+-2.887827e+04
+-2.321325e+03
+-1.191079e+03
+-6.348285e+04
+-3.680420e+03
+-1.049305e+03
+-8.631427e+02
+H: 
+[ 0,*] -17599.50269069 1622.30862640   0.00000000 -17780.14728971  -0.00000000 -3184.66266902 2442.09134961   0.00000000 284.69855983   0.00000000
+[ 1,*] 1622.30862639 -17106.07653524   0.00000000 2356.20861658   0.00000000 284.69855982 -29640.69552611  -0.00000000 -3083.74780866  -0.00000000
+[ 2,*]   0.00000000  -0.00000000 -2510.59191458   0.00000000 241.75719330   0.00000000   0.00000000 -2489.84296429  -0.00000000 -1359.59626932
+[ 3,*] -17780.14728960 2356.20861658   0.00000000 -28878.27299066   0.00000000 -3252.26549733 4715.35756778   0.00000000 415.96134247  -0.00000000
+[ 4,*]  -0.00000000   0.00000000 241.75719330  -0.00000000 -2321.32527553   0.00000000   0.00000000 340.81395110   0.00000000 126.24626673
+[ 5,*] -3184.66266910 284.69855982   0.00000000 -3252.26549737   0.00000000 -1191.07858052 437.43202573   0.00000000 115.51092517   0.00000000
+[ 6,*] 2442.09134959 -29640.69552610  -0.00000000 4715.35756779   0.00000000 437.43202573 -63482.85137282  -0.00000000 -5482.17639572  -0.00000000
+[ 7,*]   0.00000000  -0.00000000 -2489.84296430  -0.00000000 340.81395110   0.00000000  -0.00000000 -3680.42038413  -0.00000000 -1366.29936436
+[ 8,*] 284.69855983 -3083.74780871  -0.00000000 415.96134248   0.00000000 115.51092517 -5482.17639572  -0.00000000 -1049.30546466  -0.00000000
+[ 9,*]   0.00000000  -0.00000000 -1359.59626932  -0.00000000 126.24626673   0.00000000  -0.00000000 -1366.29936440  -0.00000000 -863.14267121
+
+dia_matrix: 
+[ 0,*] -14.29506204   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000
+[ 1,*]   0.00000000 -13.10781694   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000
+[ 2,*]   0.00000000   0.00000000  -8.67076752   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000
+[ 3,*]   0.00000000   0.00000000   0.00000000  -7.09570501   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000
+[ 4,*]   0.00000000   0.00000000   0.00000000   0.00000000  -6.03698168   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000
+[ 5,*]   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000  -4.25090583   0.00000000   0.00000000   0.00000000   0.00000000
+[ 6,*]   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000  -3.48592673   0.00000000   0.00000000   0.00000000
+[ 7,*]   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000  -3.13877444   0.00000000   0.00000000
+[ 8,*]   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000  -2.42698059   0.00000000
+[ 9,*]   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000   0.00000000  -0.88650542
+
+iteration 0 energy -1.472520e+01 norm 1.003268e+00 error 1.214503e-01
+iteration 1 energy -1.489856e+01 norm 9.934413e-01 error 5.876983e-02
+iteration 2 energy -1.494533e+01 norm 1.001834e+00 error 2.725065e-02
+iteration 3 energy -1.495918e+01 norm 9.991584e-01 error 1.260973e-02
+iteration 4 energy -1.496718e+01 norm 1.001960e+00 error 8.226609e-03
+iteration 5 energy -1.497326e+01 norm 9.983493e-01 error 6.980295e-03
+Final energy without shift:  -1.497326e+01
+iteration 0 energy -1.360971e+01 norm 1.006019e+00 error 1.455348e-01
+iteration 1 energy -1.379402e+01 norm 9.946966e-01 error 6.439432e-02
+iteration 2 energy -1.385010e+01 norm 1.002233e+00 error 3.077499e-02
+iteration 3 energy -1.385875e+01 norm 9.994426e-01 error 1.120628e-02
+iteration 4 energy -1.386010e+01 norm 1.000283e+00 error 5.098190e-03
+iteration 5 energy -1.386031e+01 norm 9.995989e-01 error 3.373124e-03
+Final energy without shift:  -1.386031e+01
+iteration 0 energy -9.226889e+00 norm 1.002918e+00 error 1.560809e-01
+iteration 1 energy -9.437448e+00 norm 9.851078e-01 error 7.354292e-02
+iteration 2 energy -9.506197e+00 norm 1.003004e+00 error 3.652196e-02
+iteration 3 energy -9.579624e+00 norm 1.008202e+00 error 2.306720e-02
+iteration 4 energy -9.621789e+00 norm 1.034145e+00 error 1.761773e-02
+iteration 5 energy -9.631238e+00 norm 9.832342e-01 error 1.419743e-02
+Final energy without shift:  -9.631238e+00
+iteration 0 energy -9.298795e+00 norm 1.032619e+00 error 3.443393e-01
+iteration 1 energy -1.067185e+01 norm 1.018762e+00 error 2.004379e-01
+iteration 2 energy -1.080665e+01 norm 9.975542e-01 error 7.409079e-02
+iteration 3 energy -1.091011e+01 norm 1.005094e+00 error 4.669103e-02
+iteration 4 energy -1.092443e+01 norm 1.003340e+00 error 1.705033e-02
+iteration 5 energy -1.092837e+01 norm 9.983767e-01 error 1.070555e-02
+Final energy without shift:  -1.092837e+01
+iteration 0 energy -7.387637e+00 norm 9.851921e-01 error 3.032964e-01
+iteration 1 energy -8.542677e+00 norm 1.082749e+00 error 1.905947e-01
+iteration 2 energy -8.618520e+00 norm 9.816486e-01 error 6.903518e-02
+iteration 3 energy -8.688325e+00 norm 9.900951e-01 error 4.125359e-02
+iteration 4 energy -8.696236e+00 norm 1.012045e+00 error 1.544251e-02
+iteration 5 energy -8.700066e+00 norm 9.971106e-01 error 1.094333e-02
+Final energy without shift:  -8.700066e+00
+iteration 0 energy -6.547316e+00 norm 1.013472e+00 error 3.797519e-01
+iteration 1 energy -8.537634e+00 norm 1.070583e+00 error 2.732488e-01
+iteration 2 energy -8.744136e+00 norm 9.814887e-01 error 1.334833e-01
+iteration 3 energy -8.981838e+00 norm 9.924257e-01 error 8.223977e-02
+iteration 4 energy -9.018746e+00 norm 1.015955e+00 error 3.312107e-02
+iteration 5 energy -9.025859e+00 norm 9.913550e-01 error 2.437005e-02
+Final energy without shift:  -9.025859e+00
+iteration 0 energy -4.469001e+00 norm 9.717483e-01 error 2.394351e-01
+iteration 1 energy -5.119152e+00 norm 9.821004e-01 error 1.616716e-01
+iteration 2 energy -5.164522e+00 norm 9.877606e-01 error 7.529985e-02
+iteration 3 energy -5.263576e+00 norm 9.828474e-01 error 7.795709e-02
+iteration 4 energy -5.981650e+00 norm 9.692447e-01 error 1.258485e-01
+iteration 5 energy -5.963922e+00 norm 9.594365e-01 error 3.712058e-01
+Final energy without shift:  -5.963922e+00
+iteration 0 energy -4.696134e+00 norm 1.008299e+00 error 3.171005e-01
+iteration 1 energy -5.872685e+00 norm 1.036856e+00 error 2.142844e-01
+iteration 2 energy -5.963398e+00 norm 9.949811e-01 error 1.014142e-01
+iteration 3 energy -6.045819e+00 norm 9.968397e-01 error 5.357307e-02
+iteration 4 energy -6.054046e+00 norm 1.010261e+00 error 2.147675e-02
+iteration 5 energy -6.058791e+00 norm 9.959438e-01 error 1.789035e-02
+Final energy without shift:  -6.058791e+00
+iteration 0 energy -3.492126e+00 norm 9.787930e-01 error 2.642906e-01
+iteration 1 energy -4.503754e+00 norm 9.980798e-01 error 2.008804e-01
+iteration 2 energy -4.723235e+00 norm 9.790178e-01 error 2.393774e-01
+iteration 3 energy -1.248815e+01 norm 2.351115e+00 error 3.245154e-01
+iteration 4 energy -4.884847e+00 norm 8.317165e-01 error 2.485316e-01
+iteration 5 energy -4.741140e+00 norm 1.455059e+00 error 4.639154e-01
+Final energy without shift:  -4.741140e+00
+iteration 0 energy -1.395497e+00 norm 1.028673e+00 error 2.349552e-01
+iteration 1 energy -1.699157e+00 norm 9.228861e-01 error 1.734496e-01
