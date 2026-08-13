@@ -15,7 +15,7 @@ class LoggerSetup:
     results_filename: str
     log_filename: str
     data_dir: Path | str = Path("data")
-    env_log_level: str = "QD_LOG_LEVEL"
+    env_log_level: str = "LOG_LEVEL"
     file_mode: str = "w"
     enable_faulthandler: bool = True
     results_path: Path = field(init=False)

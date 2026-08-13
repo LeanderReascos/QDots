@@ -14,13 +14,18 @@ from pyscf import fci
 import frayedends as fe
 
 from solvers import closed_shell_calculation, open_shell_calculation
-from utils import DataHelper, LoggerSetup
+from utils import DataHelper, LoggerSetup, format_elapsed_time
 
-logging_setup = LoggerSetup(__name__, "charge_stability.pkl", "charge_stability.log")
+logging_setup = LoggerSetup(
+    __name__,
+    "charge_stability.pkl",
+    "charge_stability.log",
+    env_log_level="QD_LOG_LEVEL",
+)
 logger = logging_setup.logger
 data_helper = DataHelper(
     data_dir=logging_setup.data_dir,
-    results_filename="charge_stability.pkl",
+    results_filename=logging_setup.results_path.name,
     checkpoint_glob="charge_stability_runs_*.pkl",
     logger=logger,
     fsync_env="QD_CHECKPOINT_FSYNC",
@@ -89,7 +94,7 @@ max_iter = 100
 # Checkpoint and stored-output configuration
 # -----------------------------------------------------------------------------
 energy_plot_electron_counts = tuple(n for n in (1, 2) if n in electrons_configurations)
-full_save_interval_points = data_helper.read_positive_int_from_env("QD_FULL_SAVE_INTERVAL", 10)
+full_save_interval_points = data_helper.read_positive_int_from_env("QD_FULL_SAVE_INTERVAL", 50)
 checkpoint_fsync = data_helper.should_fsync_checkpoints()
 
 sweep_config = {
@@ -306,7 +311,7 @@ for i, v_x in enumerate(Vs):
         logger.info("  checkpoint | appended completed point to %s", checkpoint_path)
 
         if new_points_since_snapshot >= full_save_interval_points:
-            data_helper.save(results, results_path, fsync=checkpoint_fsync)
+            data_helper.save(results, fsync=checkpoint_fsync)
             new_points_since_snapshot = 0
             logger.info("  snapshot | refreshed %s", results_path)
 
@@ -316,7 +321,7 @@ for i, v_x in enumerate(Vs):
         total_elapsed_time = end_time_per_point - start_time
         logger.info("  total elapsed | %s", format_elapsed_time(total_elapsed_time))
 
-data_helper.save(results, results_path, fsync=checkpoint_fsync)
+data_helper.save(results, fsync=checkpoint_fsync)
 
 
 # -----------------------------------------------------------------------------

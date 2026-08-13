@@ -83,13 +83,6 @@ def closed_shell_calculation(potential, L, n_electrons, n_orbitals, **kwargs):
         rdm1, rdm2 = fci.direct_spin0.make_rdm12(fcivec, n_orbitals, n_electrons)
         rdm2 = np.swapaxes(rdm2, 1, 2)
 
-        # Orbital optimization
-        opti = fe.OrbitalRefinement(world, mra_pot, nuc_repulsion=kwargs["nuc_repulsion"])
-        # opti.set_orthonormalization_method("mixed", degeneracy_tol=1e-3)
-        orbitals = opti.get_orbitals(
-            orbitals=orbitals, rdm1=rdm1, rdm2=rdm2, opt_thresh=kwargs["opt_thresh"], occ_thresh=kwargs["occ_thresh"], maxiter=kwargs["max_iter_orbital_optimization"]
-        ) # Optimizes the orbitals and returns the new ones
-
         n_iterations = iteration + 1
         
         story.append(energy)
@@ -98,8 +91,16 @@ def closed_shell_calculation(potential, L, n_electrons, n_orbitals, **kwargs):
             if kwargs["logger"]:
                 kwargs["logger"].info("    converged after %s iterations | energy=%+.10f", n_iterations, energy)
             break
+
+        # Orbital optimization
+        opti = fe.OrbitalRefinement(world, mra_pot, nuc_repulsion=kwargs["nuc_repulsion"])
+        # opti.set_orthonormalization_method("mixed", degeneracy_tol=1e-3)
+        orbitals = opti.get_orbitals(
+            orbitals=orbitals, rdm1=rdm1, rdm2=rdm2, opt_thresh=kwargs["opt_thresh"], occ_thresh=kwargs["occ_thresh"], maxiter=kwargs["max_iter_orbital_optimization"]
+        ) # Optimizes the orbitals and returns the new ones
         
         current = energy
+        
     end_time = perf_counter()
     log_time = end_time - start_time
 
